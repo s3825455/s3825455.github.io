@@ -1,0 +1,81 @@
+p + p + p { 
+    color: red;
+}
+
+p + p {
+     color: blue;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: yellow;
+}
+
+
+a:hover {
+    color: green;
+    background-color: violet;
+}
+
+a:active {
+    color: red;
+}
+
+ol li:first-child {
+    color: red;
+}
+
+ol li:last-child {
+    color: green;
+}
+
+ol li:nth-child(even) {
+    color: gold;
+}
+
+ol li:nth-child(4) {
+    color: cyan;
+}
+
+
+table, th, td {
+    border: 1px solid red;
+    border-collapse: collapse;
+}
+
+tr:first-child {
+    background-color: yellow;
+}
+
+tr:nth-child(even) {
+    background-color: green;
+}
+
+td:nth-child(even) {
+    background-color: red;
+}
+
+p::first-line {
+    color: darkcyan;
+    font-style: italic;
+    font-size: 120%;
+}
+
+p::first-letter {
+    color: darkcyan;
+    font-size: 200%;
+}
+
+p::selection {
+    color: rgb(0,0,0,0);
+}
+
+p::before,p::after {
+    content: " \2764 ";
+    color: darkcyan;
+  font-style: italic;
+  font-size: 120%;
+}
