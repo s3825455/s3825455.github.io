@@ -21,11 +21,12 @@
   <header>
     <div>
       <div id="header1">
-        <img src="media/logo2.png" alt="Cinema logo" height="300" width="300" >CINEMAX</div>
+        <img src="media/logo2.png" alt="Cinema logo" height="300" width="300">CINEMAX</div>
     </div>
   </header>
 
-  <nav class="navbar navbar-expand-sm navbar-light border border-primary" style="background-image: linear-gradient(90deg, #c1c8e4, #5ab9ea, #8860d0);">
+  <nav id="navbar" class="navbar navbar-expand-sm navbar-light border border-primary"
+    style="background-image: linear-gradient(90deg, #c1c8e4, #5ab9ea, #8860d0);">
     <a id="brand" href="" class="navbar-brand">Cinemax</a>
     <div class="collapse navbar-collapse">
       <ul id="nav-items" class="navbar-nav mr-auto">
@@ -38,12 +39,48 @@
 
   </nav>
 
+
+  <!-- CAROUSEL -->
+  <div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="media/seat1.png" alt="cinema" width="900px" height="358">
+      </div>
+      <div class="carousel-item">
+        <img src="media/seat2.jpg" alt="cinema" width="900px" height="358">
+      </div>
+      <div class="carousel-item">
+        <img src="media/seat3.jpg" alt="cinema" width="900px" height="358">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
   <main>
-    <article id='Website Under Construction'>
-      <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-      <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
+    <article id='aboutus'>
+      <h1>ABOUT US</h1>
+      <p>Hello, this is Cinemax and we are officially back. This is a great time for us to inform you that after a long time closing for maintenance as well as researching for new methods to improve customers' experience, We have finally reopened with our new, modern and advanced technology theaters that can give you a great time relaxing and enjoying the fantastic movies. </p>
+      <p>First of all, We have changed all of our old seats and replace it with new superior chair that can definitely provide you with extreme comfortable to enjoy your favorite movies. These chairs come in 2 different class: standard seats and reclinable first class seats. Our standard seat is made out of high-quality leather that comes with a cup-holder and also an expandable foot resting place. The standard seat are also comes in pair for couple who loves to seat next to eachother in order to enjoy their romantic movie night. About our first class seat, we can asure you that this is the best in the market, these first class seat are equipped with top range leather, an USB hub and also a retractable table for you to enjoy our delicious food. These seats are designed to give you the most comfortable feelings when relaxing as well as improve you overall posture.</p>
+      <p>That is not everything. We also upgrade our theaters system. Our projection and sound systems are upgraded with 3D Dolby Vision projection and Dolby Atmos sound.Dolby Vision is a legendary engineering, now applied to the visual experience, ushers in a whole new standard for image quality. It has advanced HDR technology which is called "Cutting-edge" technology dramatically expands the color palette and contrast range, and uses dynamic metadata to automatically optimize the picture for every screen — frame by frame. As well as our new Dolby atmos sound, it's sound that excites your senses and inspires your emotions to deliver the full impact of entertainment, Sound comes from all directions, including overhead, to fill the cinema with astonishing clarity, richness, detail, and depth, the sounds of the onscreen story move all around you in three-dimensional space, so you feel like you're inside the action. Because all of that, we can promise that we will give you one of the best time enjoying and relaxing while watching your favorite movies.</p>
     </article>
   </main>
+
+
 
   <footer>
     <div>&copy;
@@ -55,6 +92,7 @@
       Programming course at RMIT University in Melbourne, Australia.</div>
     <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
   </footer>
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
