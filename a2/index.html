@@ -19,12 +19,23 @@
 <body>
 
   <header>
-    <div class="container">
-        <img src="media/cinema.jpg" alt="Cinema logo" height="100" width="300">Cinemax</div>
+    <div>
+      <div id="header1">
+        <img src="media/logo2.png" alt="Cinema logo" height="300" width="300" >CINEMAX</div>
+    </div>
   </header>
 
-  <nav>
-    <div>Put website navigation links here</div>
+  <nav class="navbar navbar-expand-sm navbar-light border border-primary" style="background-image: linear-gradient(90deg, #c1c8e4, #5ab9ea, #8860d0);">
+    <a id="brand" href="" class="navbar-brand">Cinemax</a>
+    <div class="collapse navbar-collapse">
+      <ul id="nav-items" class="navbar-nav mr-auto">
+        <li class="nav-item mx-4 active"> <a href="" class="nav-link">About Us</a></li>
+        <li class="nav-item mx-4"> <a href="" class="nav-link">Prices</a></li>
+        <li class="nav-item mx-4"> <a href="" class="nav-link">Now Showing</a></li>
+        <li class="nav-item mx-4"> <a href="" class="nav-link">Synopsis Area</a></li>
+      </ul>
+    </div>
+
   </nav>
 
   <main>
@@ -44,7 +55,15 @@
       Programming course at RMIT University in Melbourne, Australia.</div>
     <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
   </footer>
-
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
