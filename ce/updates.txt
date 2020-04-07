@@ -1,5 +1,6 @@
 Post Submission A2 Updates 
 12:30 pm 06/04/2020 : Start working on A2
+04:00 pm 07/04/2020 : Update header and create navigation bar
 
 
 Post Submission A3 Updates 
