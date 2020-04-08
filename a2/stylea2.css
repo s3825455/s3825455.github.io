@@ -2,6 +2,7 @@
 #header1 {
     text-align: center;
     display: block;
+    font-family: museo700;
     font-weight: bolder;
     font-size: 700%;
     font-style: italic;
@@ -14,8 +15,9 @@
 
 
 #brand {
+    font-family: museo700;
     font-weight: 1000;
-    font-size: 50px;
+    font-size: 70px;
     font-style: italic;
     color: black;
 }
@@ -23,8 +25,9 @@
 
 
 #nav-items {
-    font-weight: 800;
-    font-size: larger;
+    font-family: museo700;
+    font-weight: 900;
+    font-size: 30px;
     font-style: italic;
 }
 
@@ -32,11 +35,12 @@
 body {
     margin: 0px 0px 0px 0px;
     width: 100%;
+    height: 100%;
   }
 
   #demo {
       text-align: center;
-      background-color: grey;
+      background-color: #5ab9ea;
       border: thin paleturquoise;
 
   }
@@ -44,6 +48,7 @@ body {
 
   h1 {
       text-align: center;
+      font-family: museo700;
       font-weight: 900;
       font-size: xx-large;
       font-style: italic;
@@ -51,8 +56,84 @@ body {
 
 
   p {
+    font-family: museo500;
       text-align: center;
-      font-weight: 500;
+      font-weight: bold;
       font-size:larger;
+      line-height: 2;
 
   }
+
+
+  html {
+      scroll-behavior: smooth;
+      height: 100%;
+  }
+
+
+  @font-face {
+    font-family: museo500;
+    src: url(fonts/MUSEO\ 500.OTF);
+  }
+
+
+  @font-face {
+    font-family: museo700;
+    src: url(fonts/MUSEO700-REGULAR.OTF);
+  }
+
+
+  .parallax {
+    /* The image used */
+    background-image: url("media/cinema3.jpg");
+  
+    /* Full height */
+    height: 500px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+  .parallax2 {
+    /* The image used */
+    background-image: url("media/cinema4.jpg");
+  
+    /* Full height */
+    height: 800px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+  .box {
+      border: thick  #84ceeb ;
+      background-color:  #84ceeb;
+      padding: 10px;
+      position: relative;
+      top: 330px;
+  }
+
+
+  #seatpic {
+      text-align: center;
+      background-color: transparent;
+      position: relative;
+      top: 250px;
+  }
+
+
+  .box2 {
+    border: thick  #84ceeb ;
+    background-color:  #84ceeb;
+    padding: 10px;
+    position: relative;
+    top: 250px;
+}
