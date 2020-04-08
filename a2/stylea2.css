@@ -6,9 +6,9 @@
     font-weight: bolder;
     font-size: 700%;
     font-style: italic;
-    color: white;
+    color: #c3073f;
     /* background-color: #5680e9; */
-    background-image: linear-gradient(90deg, #5680e9, #8860d0, #84ceeb);
+    background-color: #1a1a1d;
     width: 100;
     padding: 2px 10px;
 }
@@ -19,28 +19,28 @@
     font-weight: 1000;
     font-size: 70px;
     font-style: italic;
-    color: black;
+    color: #c3073f;
 }
 
 
 
-#nav-items {
+#nav-items a {
     font-family: museo700;
     font-weight: 900;
     font-size: 30px;
     font-style: italic;
+    color: #c3073f;
 }
 
 
 body {
     margin: 0px 0px 0px 0px;
     width: 100%;
-    height: 100%;
   }
 
   #demo {
       text-align: center;
-      background-color: #5ab9ea;
+      background-image: linear-gradient(90deg, #1a1a1d, #950740, #c3073f, #1a1a1d);
       border: thin paleturquoise;
 
   }
@@ -49,9 +49,10 @@ body {
   h1 {
       text-align: center;
       font-family: museo700;
-      font-weight: 900;
+      font-weight: bolder;
       font-size: xx-large;
       font-style: italic;
+      color: #c3073f;
   }
 
 
@@ -61,6 +62,7 @@ body {
       font-weight: bold;
       font-size:larger;
       line-height: 2;
+      color: antiquewhite
 
   }
 
@@ -113,12 +115,28 @@ body {
   }
 
 
+  .parallax3 {
+    /* The image used */
+    background-image: url("media/cinema5.jpg");
+  
+    /* Full height */
+    height: 500px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
   .box {
       border: thick  #84ceeb ;
-      background-color:  #84ceeb;
+      background-image: linear-gradient(90deg, #1a1a1d, #4e4e50, #4e4e50, #1a1a1d);
       padding: 10px;
       position: relative;
       top: 330px;
+      color: antiquewhite ;
   }
 
 
@@ -126,14 +144,42 @@ body {
       text-align: center;
       background-color: transparent;
       position: relative;
-      top: 250px;
+      top: 275px;
   }
 
 
   .box2 {
     border: thick  #84ceeb ;
-    background-color:  #84ceeb;
+    background-image: linear-gradient(90deg, #1a1a1d, #4e4e50, #4e4e50, #1a1a1d);
     padding: 10px;
     position: relative;
     top: 250px;
+    color: antiquewhite ;
+}
+
+
+.box3 {
+  border: thick  #84ceeb ;
+  background-image: linear-gradient(90deg, #1a1a1d, #4e4e50, #4e4e50, #1a1a1d);
+  padding: 10px;
+  position: relative;
+  top: 150px;
+  color: antiquewhite ;
+}
+
+
+#price {
+  border: double white ;
+  border-width: 15px;
+  background-image: linear-gradient(90deg, #c3073f, #6f2232, #6f2232, #c3073f);
+}
+
+.table {
+  font-family: museo500;
+  color: #1a1a1d;
+  text-align: center;
+  font-weight: bold;
+  font-size:larger;
+  line-height: 2;
+
 }
