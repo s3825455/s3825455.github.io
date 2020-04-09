@@ -172,6 +172,7 @@ body {
   border: double white ;
   border-width: 15px;
   background-image: linear-gradient(90deg, #c3073f, #6f2232, #6f2232, #c3073f);
+  position: relative;
 }
 
 .table {
@@ -189,3 +190,26 @@ body {
 #posterpic {
   float: left;
 }
+
+
+#cards {
+  background-color: #1a1a1d;
+  border: thick aqua;
+  height: 500px;
+}
+
+
+#pricetext {
+  position: relative;
+  top: 20px;
+}
+
+#card3 {
+  position: relative;
+  top: 50px;
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+
