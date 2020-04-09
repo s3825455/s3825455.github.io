@@ -3,6 +3,7 @@ Post Submission A2 Updates
 04:00 pm 07/04/2020 : Update header and create navigation bar
 09:00 pm 07/04/2020 : Finish writing "About Us" and decorating.
 02:00 pm 08/04/2020 : Work on Parallax Effect for first part.
+09:00 pm 08/04/2020 : Finish Price Table using Bootstrap4.
 
 
 Post Submission A3 Updates 
