@@ -194,8 +194,8 @@ body {
 
 #cards {
   background-color: #1a1a1d;
-  border: thick aqua;
   height: 500px;
+  padding: 10px;
 }
 
 
