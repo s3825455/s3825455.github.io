@@ -216,8 +216,18 @@ body {
 
 iframe {
   float: right;
-  width: 600px;
-  height: 400px;
+  width: 45vw;
+  height: 50vh;
 }
 
+#synopsis {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+
+#syntext {
+  color: #1a1a1d;
+}
 
