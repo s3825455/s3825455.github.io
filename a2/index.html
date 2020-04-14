@@ -31,10 +31,10 @@
     <a id="brand" href="" class="navbar-brand">Cinemax</a>
     <div class="collapse navbar-collapse">
       <ul id="nav-items" class="navbar-nav mr-auto">
-        <li class="nav-item mx-5 active"> <a href="" class="nav-link">About Us</a></li>
-        <li class="nav-item mx-5"> <a href="" class="nav-link">Prices</a></li>
-        <li class="nav-item mx-5"> <a href="" class="nav-link">Now Showing</a></li>
-        <li class="nav-item mx-5"> <a href="" class="nav-link">Synopsis Area</a></li>
+        <li class="nav-item mx-5 active"> <a href="#aboutus" class="nav-link">About Us</a></li>
+        <li class="nav-item mx-5"> <a href="#price" class="nav-link">Prices</a></li>
+        <li class="nav-item mx-5"> <a href="#cards" class="nav-link">Now Showing</a></li>
+        <li class="nav-item mx-5"> <a href="#synsyn" class="nav-link">Synopsis Area</a></li>
       </ul>
     </div>
 
@@ -126,7 +126,7 @@
       </div>
     </article>
     <article>
-      <div id="price">
+      <div id="price" style="height: 100vh;">
         <h1 id="pricetext" style="color: whitesmoke;">PRICES</h1>
         <p id="pricetext"> Due to our reopening day, we decided that we will offers discounted pricing weekday
           afternoons at 12pm (ie
@@ -181,55 +181,63 @@
         </div>
       </div>
     </article>
-    <article>
-      <div id="cards">
 
+
+
+    <article id="cards" class="container-fluid" style="height: 100vh;">
+      <div>
         <h1 id="pricetext">NOW SHOWING</h1>
 
         <div id="card3" class="card-deck">
-          <div class="card bg-primary" style="height: 350px; width: 250px;">
+
+          <div class="card bg-primary">
+            <img id="posterpic" class="card-img-top" src="media/AEG.jpg" alt="movie poster" width="100vw" height="400vh">
             <div class="card-body">
-              <img id="posterpic" class="img-fluid img-thumbnail " src="media/AEG.jpg" alt="movie poster" width="200">
               <p class="card-text">Avenger: Endgame</p>
               <p class="card-text">PG-13</p>
               <p class="card-text"></p>
             </div>
           </div>
-          <div class="card bg-warning" style="height: 350px; width: 250px;">
+
+          <div class="card bg-warning">
+            <img id="posterpic" class="card-img-top" src="media/dumbo.jpeg" alt="movie poster" width="100vw" height="400vh">
             <div class="card-body">
-              <img id="posterpic" class="img-fluid img-thumbnail" src="media/dumbo.jpeg" alt="movie poster" width="200"
-                height="250">
               <p class="card-text">Dumbo</p>
             </div>
           </div>
-          <div class="card bg-success" style="height: 350px; width: 250px;">
+
+          <div class="card bg-success">
+            <img id="posterpic" class="card-img-top" src="media/prince.jpg" alt="movie poster" width="100vw" height="400vh">
             <div class="card-body">
-              <img id="posterpic" class="img-fluid img-thumbnail" src="media/prince.jpg" alt="movie poster" width="200"
-                height="250">
+              
               <p class="card-text">The Happy Prince </p>
             </div>
           </div>
-          <div class="card bg-danger" style="height: 350px; width: 250px;">
+
+          <div class="card bg-danger" >
+            <img id="posterpic" class="card-img-top" src="media/topend.jpg" alt="movie poster" width="100vw" height="400vh">
             <div class="card-body">
-              <img id="posterpic" class="img-fluid img-thumbnail" src="media/topend.jpg" alt="movie poster" width="200"
-                height="250">
               <p class="card-text">Top End Wedding </p>
             </div>
           </div>
+          
         </div>
       </div>
     </article>
-    <article>
+
+
+
+    <article id="synsyn" class="container-fluid" style="height: 100vh;">
       <div>
-        <h1 style="text-align: center;">Synopsis Area</h1>
-        <h2 style="padding: 20px;">Avenger: End game PG-13 </h2>
+        <h1 id="tele4" style="text-align: center;">Synopsis</h1>
+        <h2 style="padding: 20px; color: whitesmoke;">Avenger: End game PG-13 </h2>
         <div id="synopsis">
         <p id="syntext" style="text-align: left; width: 50%;">Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts
           as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain
           America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown
-          with Thanos -- the evil demigod who decimated the planet and the universe.</p>
-
-        <div>
+          with Thanos -- the evil demigod who decimated the planet and the universe. The appearance of Ant-man had brought the Avenger back and together, they discovered a risky yet successful way to solve everything that Thanos has done 5 years ago.</p>
+        
+          <div>
         <iframe id="rightvid" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       </div>

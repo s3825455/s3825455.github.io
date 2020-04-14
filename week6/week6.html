@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="week6.js"></script>
+<!-- <h1>The onclick Event</h1>
+
+<p>The onclick event is used to trigger a function when an element is clicked on.</p>
+
+<p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+
+<button onclick="myFunction()">Click me</button>
+<button onclick="hello()">Click me 1</button>
+
+
+<p id="demo" >Thien An</p>
+<p id="demo" onclick="hello()">Hello to you</p> -->
+
+<!-- Enter your name: <input type="text" id="fname" onblur="myFunction()">
+
+<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
+<script>
+function myFunction() {
+    console.log('here');
+  var x = document.getElementById("fname");
+  x.value = x.value.toUpperCase();
+}
+</script> -->
+
+<!-- <script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+
+function hello() {
+    console.log('here')
+    document.getElementById("demo").innerHTML += " and you";}
+</script> -->
+
+
+
+<!-- <p>Select a new car from the list.</p>
+
+<select id="mySelect" onchange="myFunction()">
+  <option value="Audi">Audi</option>
+  <option value="BMW">BMW</option>
+  <option value="Mercedes">Mercedes</option>
+  <option value="Volvo">Volvo</option>
+</select>
+
+<p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("mySelect").value;
+  document.getElementById("demo").innerHTML = "You selected: " + x;
+}
+</script> -->
+
+
+
+<p>A function is triggered when the user releases a key in the input field. The function transforms the character to upper case.</p>
+Enter your name: <input type="text" id="fname" onblur="myFunction()">
+
+<script>
+function myFunction() {
+    var x = document.getElementById("fname");
+    if (x.value == 'An')
+        x.value = x.value.toUpperCase();
+}
+</script>
+
+</body>
+</html>

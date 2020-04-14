@@ -62,7 +62,7 @@ body {
       font-weight: bold;
       font-size:larger;
       line-height: 2;
-      color: antiquewhite
+      color: whitesmoke
 
   }
 
@@ -182,6 +182,8 @@ body {
   font-weight: bold;
   font-size:larger;
   line-height: 2;
+  margin-top: 30px;
+  height: 70vh;
 
 }
 
@@ -194,8 +196,11 @@ body {
 
 #cards {
   background-color: #1a1a1d;
-  height: 500px;
-  padding: 10px;
+  height: 100vh;
+  padding: 20px;
+  border: double turquoise;
+  border-width: 20px;
+  
 }
 
 
@@ -228,6 +233,15 @@ iframe {
 
 
 #syntext {
-  color: #1a1a1d;
+  color: whitesmoke;
+  font-size: x-large;
 }
+
+#synsyn {
+  background-image: linear-gradient(to bottom,#1a1a1d, #c3073f);
+  border: double white;
+  border-width: 20px;
+  padding: 20px;
+}
+
 
