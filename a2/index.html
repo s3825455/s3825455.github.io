@@ -191,8 +191,7 @@
         <div id="card3" class="card-deck">
 
           <div class="card bg-primary">
-            <img id="posterpic" class="card-img-top" src="media/AEG.jpg" alt="movie poster" width="100%"
-              height="400vh">
+            <img id="posterpic" class="card-img-top" src="media/AEG.jpg" alt="movie poster" width="100%" height="400vh">
             <div class="card-body">
               <p class="card-text">Avenger: Endgame - PG-13</p>
               <p class="card-text">Wednesday - 9pm</p>
@@ -208,7 +207,7 @@
               height="400vh">
             <div class="card-body">
               <p class="card-text">Dumbo</p>
-              
+
             </div>
           </div>
 
@@ -246,14 +245,77 @@
             America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown
             with Thanos -- the evil demigod who decimated the planet and the universe. The appearance of Ant-man had
             brought the Avenger back and together, they discovered a risky yet successful way to solve everything that
-            Thanos has done 5 years ago.</p>
-
+            Thanos has done 5 years ago.
+            <br>
+            <br>
+            <br>
+            <br>
+            Make a booking:
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Wednesday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Thursday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Friday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Saturday - 6pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Sunday - 6pm</a>
+          </p>
           <div>
             <iframe id="rightvid" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
-
+      </div>
+    </article>
+    <article id="booking">
+      <div>
+        <h1>BOOKING</h1>
+        <form>
+          <div class="form-group">
+            <label for="name1">Your full name</label>
+            <input type="text" class="form-control" id="name1" placeholder="Enter your full name here">
+          </div>
+          <div class="form-group">
+            <label for="age1">Your age</label>
+            <input type="number" class="form-control" id="age1" placeholder="Enter your age here">
+          </div>
+          <div class="form-group">
+            <label for="email1"> Your Email address</label>
+            <input type="email" class="form-control" id="email1" placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phone1">Your phone number</label>
+            <input type="number" class="form-control" id="email1" placeholder="Enter your phone number here">
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="ticket">Ticket amount</label>
+        <select class="form-control" id="ticket">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="movie">Choose your movie</label>
+        <select class="form-control" id="movie">
+          <option>Avenger: End Game</option>
+          <option>Dumbo</option>
+          <option>The happy prince</option>
+          <option>Top end wedding</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="time">Choose your session</label>
+        <textarea class="form-control" id="time" rows="3"></textarea>
+      </div>
+      <div class="text-center">
+      <button class="btn btn-primary btn-lg" id="button1" type="submit">BOOK</button>
+    </div>
+      </div>
+      </form>
       </div>
     </article>
   </main>

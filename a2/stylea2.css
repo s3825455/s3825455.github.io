@@ -245,3 +245,14 @@ iframe {
 }
 
 
+#button1 {
+  text-align: center;
+}
+
+#booking {
+background-color: lightblue;
+border: double black;
+border-width: 20px;
+}
+
+
