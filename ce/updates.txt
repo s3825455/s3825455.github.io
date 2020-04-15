@@ -4,6 +4,9 @@ Post Submission A2 Updates
 09:00 pm 07/04/2020 : Finish writing "About Us" and decorating.
 02:00 pm 08/04/2020 : Work on Parallax Effect for first part.
 09:00 pm 08/04/2020 : Finish Price Table using Bootstrap4.
+09/04/2020 : Trying to use Bootstrap Card deck to make Now Showing session
+10/04/2020 : Finish Synopsis area as well as nav bar navigation.
+15/04/2020 : Finish Booking area. 
 
 
 Post Submission A3 Updates 
