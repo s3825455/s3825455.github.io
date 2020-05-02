@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assignment 2</title>
+  <title>Assignment 3</title>
 
   <!-- Keep wireframe.css for debugging, add your css to style.css -->
   <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
@@ -193,53 +193,56 @@
           <div class="card bg-primary">
             <img id="posterpic" class="card-img-top" src="media/AEG.jpg" alt="movie poster" width="100%" height="400vh">
             <div class="card-body">
-              <h3 class="card-title" style="text-align: center; color: white;">Avenger: Endgame - PG-13</h3>
-              <p class="card-text">Wednesday - 9pm</p>
-              <p class="card-text">Thursday - 9pm</p>
-              <p class="card-text">Friday - 9pm</p>
-              <p class="card-text">Saturday - 6pm</p>
-              <p class="card-text">Sunday - 6pm</p>
+              <h3 id="card1" class="card-title" style="text-align: center; color: white;">Avenger: Endgame - PG-13</h3>
+              <p id="card1" class="card-text">Wednesday - 9pm</p>
+              <p id="card1" class="card-text">Thursday - 9pm</p>
+              <p id="card1" class="card-text">Friday - 9pm</p>
+              <p id="card1" class="card-text">Saturday - 6pm</p>
+              <p id="card1" class="card-text">Sunday - 6pm</p>
             </div>
+            <button style="text-align: center; vertical-align: middle;" onclick="reveal()">See more</button>
           </div>
 
-          <div class="card bg-warning" ">
+          <div class="card bg-warning">
             <img id="posterpic" class="card-img-top" src="media/dumbo.jpeg" alt="movie poster" width="100vw"
-              height="400vh">
+              height="400vh" onclick="reveal()">
             <div class="card-body">
-              <h3 class="card-title" style="text-align: center; color: white;">Dumbo</h3>              
-              <p class="card-text">Monday/Tuesday - 12pm</p>
-              <p class="card-text">Wed/Thur/Fri - 6pm</p>
-              <p class="card-text">Saturday - 12pm</p>
-              <p class="card-text">Sunday - 12pm</p>
-
+              <h3 id="card1" class="card-title" style="text-align: center; color: white;">Dumbo</h3>              
+              <p id="card1"class="card-text">Monday/Tuesday - 12pm</p>
+              <p id="card1" class="card-text">Wed/Thur/Fri - 6pm</p>
+              <p id="card1" class="card-text">Saturday - 12pm</p>
+              <p id="card1"class="card-text">Sunday - 12pm</p>
             </div>
+            <button style="text-align: center; vertical-align:middle;" onclick="reveal2()">See more</button>
+
           </div>
 
           <div class="card bg-success">
             <img id="posterpic" class="card-img-top" src="media/prince.jpg" alt="movie poster" width="100vw"
               height="400vh">
             <div class="card-body">
-
-              <h3 class="card-title" style="text-align: center; color: white;">The Happy Prince </h3>   
-               <p class="card-text">Monday - 6pm</p>
-               <p class="card-text">Tuesday - 6pm</p>
-              <p class="card-text">Saturday - 3pm</p>
-              <p class="card-text">Sunday - 3pm</p>
-
+              <h3 id="card1" class="card-title" style="text-align: center; color: white;">The Happy Prince </h3>   
+               <p id="card1" class="card-text">Monday - 6pm</p>
+               <p id="card1" class="card-text">Tuesday - 6pm</p>
+              <p id="card1" class="card-text">Saturday - 3pm</p>
+              <p id="card1" class="card-text">Sunday - 3pm</p>
             </div>
+            <button style="text-align: center; vertical-align: middle;" onclick="reveal3()">See more</button>
+
           </div>
 
           <div class="card bg-danger">
             <img id="posterpic" class="card-img-top" src="media/topend.jpg" alt="movie poster" width="100vw"
               height="400vh">
             <div class="card-body">
-              <h3 class="card-title" style="text-align: center; color: white;">Top End Wedding</h3>
-              <p class="card-text">Wednesday - 12pm</p>
-              <p class="card-text">Thursday - 12pm</p>
-              <p class="card-text">Friday - 12pm</p>
-              <p class="card-text">Saturday - 9pm</p>
-              <p class="card-text">Sunday - 9pm</p>
+              <h3 id="card1" class="card-title" style="text-align: center; color: white;">Top End Wedding</h3>
+              <p id="card1" class="card-text">Wednesday - 12pm</p>
+              <p id="card1" class="card-text">Thursday - 12pm</p>
+              <p id="card1" class="card-text">Friday - 12pm</p>
+              <p id="card1" class="card-text">Saturday - 9pm</p>
+              <p id="card1" class="card-text">Sunday - 9pm</p>
             </div>
+            <button style="text-align: center; vertical-align: middle;" onclick="reveal4()">See more</button>
           </div>
 
       
@@ -248,7 +251,7 @@
 
 
 
-    <article id="synsyn" class="container-fluid" style="height: 100vh;">
+    <article id="hiddensyn" style="display: none;" id="synsyn" class="container-fluid" style="height: 100vh;">
       <div>
         <h1 id="tele4" style="text-align: center;">Synopsis</h1>
         <h2 style="padding: 20px; color: whitesmoke;">Avenger: End game PG-13 </h2>
@@ -274,6 +277,78 @@
           <div>
             <iframe id="rightvid" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article id="hiddensyn2" style="display: none;" id="synsyn" class="container-fluid" style="height: 100vh;">
+      <div>
+        <h1 id="tele4" style="text-align: center;">Synopsis</h1>
+        <h2 style="padding: 20px; color: whitesmoke;"> Dumbo </h2>
+        <div id="synopsis">
+          <p id="syntext" style="text-align: left; width: 50%;">A young circus elephant is born with comically large ears and given the cruel nickname Dumbo. One day at a show, he is taunted by a group of kids, inciting his mother into a rage that gets her locked up. After Dumbo's ears cause an accident that injures many of the other elephants, he is made to dress like a clown and perform dangerous stunts. Everything changes when Dumbo discovers that his enormous ears actually allow him to fly, and he astounds everyone at the circus with his new talent.
+            <br>
+            <br>
+            <br>
+            <br>
+            Make a booking:
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Wednesday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Thursday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Friday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Saturday - 6pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Sunday - 6pm</a>
+          </p>
+          <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7NiYVoqBt-8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article id="hiddensyn3" style="display: none;" id="synsyn" class="container-fluid" style="height: 100vh;">
+      <div>
+        <h1 id="tele4" style="text-align: center;">Synopsis</h1>
+        <h2 style="padding: 20px; color: whitesmoke;">The Happy Prince </h2>
+        <div id="synopsis">
+          <p id="syntext" style="text-align: left; width: 50%;">His body ailing, Oscar Wilde lives out his last days in exile, observing the difficulties and failures surrounding him with ironic detachment, humour, and the wit that defined his life.
+            <br>
+            <br>
+            <br>
+            <br>
+            Make a booking:
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Wednesday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Thursday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Friday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Saturday - 6pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Sunday - 6pm</a>
+          </p>
+          <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tXANCJQkUIE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article id="hiddensyn4" style="display: none;" id="synsyn" class="container-fluid" style="height: 100vh;">
+      <div>
+        <h1 id="tele4" style="text-align: center;">Synopsis</h1>
+        <h2 style="padding: 20px; color: whitesmoke;"> Top End Wedding </h2>
+        <div id="synopsis">
+          <p id="syntext" style="text-align: left; width: 50%;">Lauren and Ned have 10 days to find Lauren's mother who has gone AWOL in the remote far north of Australia so that they can reunite her parents and pull off their dream wedding.
+            <br>
+            <br>
+            <br>
+            <br>
+            Make a booking:
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Wednesday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Thursday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Friday - 9pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Saturday - 6pm</a>
+            <a href="#booking" type="button" class="btn btn-outline-warning btn-lg">Sunday - 6pm</a>
+          </p>
+          <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uoDBvGF9pPU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>

@@ -208,7 +208,28 @@ iframe {
   font-size: x-large;
 }
 
-#synsyn {
+#hiddensyn {
+  background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
+  border: double white;
+  border-width: 20px;
+  padding: 20px;
+}
+
+#hiddensyn2{
+  background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
+  border: double white;
+  border-width: 20px;
+  padding: 20px;
+}
+
+#hiddensyn3{
+  background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
+  border: double white;
+  border-width: 20px;
+  padding: 20px;
+}
+
+#hiddensyn4{
   background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
   border: double white;
   border-width: 20px;
@@ -226,6 +247,10 @@ iframe {
 }
 
 ul li.active a {
-  background: white;
-  color: black !important;
+  color: yellow !important;
+}
+
+#card1 {
+  font-size: x-large !important;
+  line-height: normal !important;
 }
