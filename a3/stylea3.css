@@ -64,7 +64,7 @@ html {
 
 @font-face {
   font-family: museo500;
-  src: url(fonts/MUSEO\500otf);
+  src: url(fonts/MUSEO500.OTF);
 }
 
 @font-face {
@@ -223,4 +223,9 @@ iframe {
   background-color: lightblue;
   border: double black;
   border-width: 20px;
+}
+
+ul li.active a {
+  background: white;
+  color: black !important;
 }
