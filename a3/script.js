@@ -3,6 +3,7 @@ $(document).on('click', 'ul li', function() {
     $(this).addClass('active').siblings().removeClass('active')
 })
 
+
 function reveal() {
     document.getElementById("hiddensyn4").style.display = 'none';
     document.getElementById("hiddensyn3").style.display = 'none';
@@ -31,3 +32,4 @@ function reveal4() {
     document.getElementById("hiddensyn2").style.display = 'none';
     document.getElementById("hiddensyn4").style.display = 'block';
 }
+
