@@ -172,8 +172,6 @@ html {
 
 #cards {
   background-color: #1a1a1d;
-  height: 100vh;
-  padding: 20px;
   border: double turquoise;
   border-width: 20px;
 }
@@ -183,13 +181,6 @@ html {
   top: 20px;
 }
 
-#card3 {
-  position: relative;
-  top: 50px;
-  width: 100%;
-  height: 40vh;
-  object-fit: cover;
-}
 
 iframe {
   float: right;
