@@ -102,5 +102,21 @@ function HPSU3() {
 }
 
 function TEWW12() {
-    document.getElementById("booking_movie").innerHTML = "Top End Wedding - Sunday - 3PM"
+    document.getElementById("booking_movie").innerHTML = "Top End Wedding - Wednesday - 12PM"
+}
+
+function TEWT12() {
+    document.getElementById("booking_movie").innerHTML = "Top End Wedding - Thursday - 12PM"
+}
+
+function TEWF12() {
+    document.getElementById("booking_movie").innerHTML = "Top End Wedding - Friday - 12PM"
+}
+
+function TEWSA9() {
+    document.getElementById("booking_movie").innerHTML = "Top End Wedding - Saturday - 9PM"
+}
+
+function TEWSU9() {
+    document.getElementById("booking_movie").innerHTML = "Top End Wedding - Sunday - 9PM"
 }
