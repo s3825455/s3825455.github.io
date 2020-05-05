@@ -75,10 +75,8 @@ html {
 .parallax {
   /* The image used */
   background-image: url("media/cinema3.jpg");
-
   /* Full height */
   height: 500px;
-
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
@@ -89,10 +87,8 @@ html {
 .parallax2 {
   /* The image used */
   background-image: url("media/cinema4.jpg");
-
   /* Full height */
   height: 800px;
-
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
@@ -103,10 +99,8 @@ html {
 .parallax3 {
   /* The image used */
   background-image: url("media/cinema5.jpg");
-
   /* Full height */
   height: 400px;
-
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
@@ -181,7 +175,6 @@ html {
   top: 20px;
 }
 
-
 iframe {
   float: right;
   width: 45vw;
@@ -206,21 +199,21 @@ iframe {
   padding: 20px;
 }
 
-#hiddensyn2{
+#hiddensyn2 {
   background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
   border: double white;
   border-width: 20px;
   padding: 20px;
 }
 
-#hiddensyn3{
+#hiddensyn3 {
   background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
   border: double white;
   border-width: 20px;
   padding: 20px;
 }
 
-#hiddensyn4{
+#hiddensyn4 {
   background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
   border: double white;
   border-width: 20px;
