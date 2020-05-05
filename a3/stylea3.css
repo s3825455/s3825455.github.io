@@ -226,8 +226,8 @@ iframe {
 
 #booking {
   background-color: lightblue;
-  border: double black;
-  border-width: 20px;
+  border:red double !important;
+  border-width: 10px;
 }
 
 ul li.active a {
@@ -237,4 +237,33 @@ ul li.active a {
 #card1 {
   font-size: x-large !important;
   line-height: normal !important;
+}
+
+#form_standard {
+  text-align: center;
+  font-family: Museo500;
+  font-weight: 800;
+  font-size: x-large;
+}
+
+#form01 {
+  border-top: yellow;
+  border-bottom: yellow;
+  border-style: solid;
+  border-width: 5px;
+  border-right: none;
+  border-left: none;
+  padding: 10px;
+}
+
+#form02 {
+  border-top: red;
+  border-bottom: red;
+  border-style: solid;
+  border-width: 5px;
+  border-right: none;
+  border-left: none;
+  position: relative;
+  padding: 20px;
+  margin-top: 50px;
 }

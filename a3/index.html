@@ -21,7 +21,7 @@
   <header>
     <div>
       <div id="header1">
-        <img src="media/logo2.png" alt="Cinema logo" height="300" width="300" style="vertical-align: middle;">CINEMAX
+        <img src="media/logo2.png" alt="Cinema logo" class="img-fluid" style="vertical-align: middle; max-width: 300px;">CINEMAX
       </div>
     </div>
   </header>
@@ -34,7 +34,7 @@
         <li  class="nav-item mx-5 active"> <a href="#aboutus" class="nav-link">About Us</a></li>
         <li  class="nav-item mx-5"> <a href="#price" class="nav-link">Prices</a></li>
         <li  class="nav-item mx-5"> <a href="#cards" class="nav-link">Now Showing</a></li>
-        <li  class="nav-item mx-5"> <a href="#synsyn" class="nav-link">Synopsis Area</a></li>
+        <li  class="nav-item mx-5"> <a href="#tele4" class="nav-link">Synopsis Area</a></li>
       </ul>
     </div>
 
@@ -239,7 +239,7 @@
 
 
 
-    <article id="hiddensyn" style="display: none;" id="synsyn" class="container-fluid" style="height: 100vh;">
+    <article id="hiddensyn"  class="container-fluid" style="height: 100vh;">
       <div>
         <h1 id="tele4" style="text-align: center;">Synopsis</h1>
         <h2 style="padding: 20px; color: whitesmoke;">Avenger: End game PG-13 </h2>
@@ -344,57 +344,153 @@
     </article>
     <article id="booking">
       <div>
-        <h1>BOOKING</h1>
-        <h2 id="booking_movie"></h2>
-        <form>
-          <div class="form-group">
-            <label for="name1">Your full name</label>
-            <input type="text" class="form-control" id="name1" placeholder="Enter your full name here">
+        <h1 style="padding-top: 15px;">BOOKING</h1>
+        <h2 id="booking_movie"></h2> 
+        <form action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php" method="POST">
+          <div id="form01">
+          <h2 style="font-family: museo700; font-size: 50px; font-weight:800; padding-left: 30px;">Standard</h2>
+          <div style="display: none;" class="form-group">
+            <label for="movieID">MovieID</label>
+            <input name="movie[id]" type="text" class="form-control" id="movieID">
           </div>
-          <div class="form-group">
-            <label for="age1">Your age</label>
-            <input type="number" class="form-control" id="age1" placeholder="Enter your age here">
+          <div style="display: none;" class="form-group">
+            <label for="movie_day">MovieDay</label>
+            <input name="movie[day]" type="text" class="form-control" id="movie_day">
           </div>
-          <div class="form-group">
-            <label for="email1"> Your Email address</label>
-            <input type="email" class="form-control" id="email1" placeholder="name@example.com">
+          <div style="display: none;" class="form-group">
+            <label for="movie_hour">MovieHour</label>
+            <input name="movie[hour]" type="text" class="form-control" id="movie_hour">
           </div>
-          <div class="form-group">
-            <label for="phone1">Your phone number</label>
-            <input type="number" class="form-control" id="email1" placeholder="Enter your phone number here">
+          <div class="form-group row" id="form_standard">
+            <label for="adult_standard" class="col-sm-2 col-form-label">Adults</label>
+            <div class="col-sm-10">
+              <select name="seats[STA]" id="adult_standard" class="form-control">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
           </div>
-      </div>
-      <div class="form-group">
-        <label for="ticket">Ticket amount</label>
-        <select class="form-control" id="ticket">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="movie">Choose your movie</label>
-        <select class="form-control" id="movie">
-          <option>Avenger: End Game</option>
-          <option>Dumbo</option>
-          <option>The happy prince</option>
-          <option>Top end wedding</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="time">Choose your session</label>
-        <textarea class="form-control" id="time" rows="3"></textarea>
-      </div>
-      <div class="text-center">
-      <button class="btn btn-primary btn-lg" id="button1" type="submit">BOOK</button>
-    </div>
-      </div>
+          
+            <label for="concession_standard" class="col-sm-2 col-form-label">Concession</label>
+            <div class="col-sm-10">
+              <select name="seats[STP]" id="concession_standard" class="form-control">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+              </div>
+          
+          
+            <label for="children_standard" class="col-sm-2 col-form-label">Children</label>
+            <div class="col-sm-10">
+              <select name="seats[STC]" id="children_standard" class="form-control">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+          </div>
+          </div>
+          </div>
+
+
+
+
+          <div id="form02">
+            <h2 style="font-family: museo700; font-size: 50px; font-weight:800; padding-left: 30px;">First Class</h2>
+            <div class="form-group row" id="form_standard">
+              <label for="adult_firstclass" class="col-sm-2 col-form-label">Adults</label>
+              <div class="col-sm-10">
+                <select name="seats[FCA]" id="adult_firstclass" class="form-control">
+                  <option></option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </select>
+            </div>
+            
+              <label for="concession_firstclass" class="col-sm-2 col-form-label">Concession</label>
+              <div class="col-sm-10">
+                <select name="seats[FCP]" id="concession_firstclass" class="form-control">
+                  <option></option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </select>
+                </div>
+            
+            
+              <label for="children_firstclass" class="col-sm-2 col-form-label">Children</label>
+              <div class="col-sm-10">
+                <select name="seats[FCC]" id="children_firstclass" class="form-control">
+                  <option></option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </select>
+            </div>
+            </div>
+          </div>
+          <div>
+            <h2 style="font-family: museo700; font-size: 50px; font-weight:800; padding-left: 30px;">Personal Information</h2>
+            <div class="form-group row">
+              <label for="customer_name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="name" name="cust[name]" class="form-control" id="customer_name" placeholder="Your full name" >
+              </div>
+              <label for="customer_email" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" name="cust[email]" class="form-control" id="customer_email" placeholder="Email" >
+              </div>
+            </div>
+          </div>
+          <button type="submit" style="text-align: center;"  value="Submit">Submit</button>
       </form>
+      
       </div>
     </article>
   </main>
