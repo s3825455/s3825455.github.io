@@ -128,52 +128,101 @@ function DSU12() {
   document.getElementById("movie_hour").value = "T12";
 }
 
-function HPM6() {
+function TEWM6() {
   document.getElementById("booking_movie").innerHTML =
-    "The Happy Prince - Monday - 6PM";
+    "Top End Wedding - Monday - 6PM";
+    document.getElementById("movieID").value = "RMC";
+    document.getElementById("movie_day").value = "MON";
+    document.getElementById("movie_hour").value = "T18";
+
 }
 
-function HPT6() {
+function TEWT6() {
   document.getElementById("booking_movie").innerHTML =
-    "The Happy Prince - Tuesday - 6PM";
+    "Top End Wedding - Tuesday - 6PM";
+    document.getElementById("movieID").value = "RMC";
+    document.getElementById("movie_day").value = "TUE";
+    document.getElementById("movie_hour").value = "T18";
+
 }
 
-function HPSA3() {
+function TEWDSA3() {
   document.getElementById("booking_movie").innerHTML =
-    "The Happy Prince - Saturday - 3PM";
+    "Top End Wedding - Saturday - 3PM";
+    document.getElementById("movieID").value = "RMC";
+    document.getElementById("movie_day").value = "SAT";
+    document.getElementById("movie_hour").value = "T15";
+
 }
 
-function HPSU3() {
+function TEWSU3() {
   document.getElementById("booking_movie").innerHTML =
-    "The Happy Prince - Sunday - 3PM";
+    "Top End Wedding - Sunday - 3PM";
+    document.getElementById("movieID").value = "RMC";
+    document.getElementById("movie_day").value = "SUN";
+    document.getElementById("movie_hour").value = "T18";
+    
 }
 
-function HPSU3() {
+
+function HPW12() {
   document.getElementById("booking_movie").innerHTML =
-    "The Happy Prince - Sunday - 3PM";
+    "The Happy Prince - Wednesday - 12PM";
+    document.getElementById("movieID").value = "AHF";
+    document.getElementById("movie_day").value = "WED";
+    document.getElementById("movie_hour").value = "T12";
 }
 
-function TEWW12() {
+function HPT12() {
   document.getElementById("booking_movie").innerHTML =
-    "Top End Wedding - Wednesday - 12PM";
+    "The Happy Prince - Thursday - 12PM";
+    document.getElementById("movieID").value = "AHF";
+    document.getElementById("movie_day").value = "THU";
+    document.getElementById("movie_hour").value = "T12";
 }
 
-function TEWT12() {
+function HPF12() {
   document.getElementById("booking_movie").innerHTML =
-    "Top End Wedding - Thursday - 12PM";
+    "The Happy Prince - Friday - 12PM";
+    document.getElementById("movieID").value = "AHF";
+    document.getElementById("movie_day").value = "FRI";
+    document.getElementById("movie_hour").value = "T12";
 }
 
-function TEWF12() {
+function HPSA9() {
   document.getElementById("booking_movie").innerHTML =
-    "Top End Wedding - Friday - 12PM";
+    "The Happy Prince - Saturday - 9PM";
+    document.getElementById("movieID").value = "AHF";
+    document.getElementById("movie_day").value = "SAT";
+    document.getElementById("movie_hour").value = "T21";
 }
 
-function TEWSA9() {
+function HPSU9() {
   document.getElementById("booking_movie").innerHTML =
-    "Top End Wedding - Saturday - 9PM";
+    "The Happy Prince - Sunday - 9PM";
+    document.getElementById("movieID").value = "AHF";
+    document.getElementById("movie_day").value = "SUN";
+    document.getElementById("movie_hour").value = "T21";
 }
+function Check_expiry() {
+  var given_month = document.getElementById("cust[expiryMonth]").value -1;
+  var given_year = document.getElementById("cust[expiryYear]").value;
+  var current_date = new Date();
+  var current_month = current_date.getMonth();
+  var current_year = current_date.getFullYear();
 
-function TEWSU9() {
-  document.getElementById("booking_movie").innerHTML =
-    "Top End Wedding - Sunday - 9PM";
+  if (given_month < current_month && given_year == current_year) {
+    document.getElementById("error_message").style.display = "block";
+    alert("Please enter a valid expiry date!");
+    return false;
+  }else{
+    document.getElementById("error_message").style.display = "none";
+  }
+
+
+  if (given_year < current_year) {
+    alert("Please enter a valid expiry date!");
+    return false;
+  }
+
 }

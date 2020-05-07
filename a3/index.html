@@ -239,7 +239,7 @@
 
 
 
-    <article id="hiddensyn"  class="container-fluid" style="height: 100vh;">
+    <article id="hiddensyn"  class="container-fluid" >
       <div>
         <h1 id="tele4" style="text-align: center;">Synopsis</h1>
         <h2 style="padding: 20px; color: whitesmoke;">Avenger: End game PG-13 </h2>
@@ -346,7 +346,7 @@
       <div>
         <h1 style="padding-top: 15px;">BOOKING</h1>
         <h2 id="booking_movie"></h2> 
-        <form action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php" method="POST">
+        <form action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php" method="POST" onsubmit="return Check_expiry()">
           <div id="form01">
           <h2 style="font-family: museo700; font-size: 50px; font-weight:800; padding-left: 30px;">Standard</h2>
           <div style="display: none;" class="form-group">
@@ -480,7 +480,7 @@
             <div class="form-group row">
               <label for="customer_name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="name" name="cust[name]" class="form-control" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$" title="Please enter a valid name!" >
+                <input type="name" name="cust[name]" class="form-control" required="required" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$" title="Please enter a valid name!" >
               </div>
               <label for="customer_email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
@@ -488,19 +488,52 @@
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Mobile Number</label>
               <div class="col-sm-10">
-                <input type="tel" name="cust[mobile]" class="form-control" id="customer_name" placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!" >
+                <input type="tel" name="cust[mobile]" class="form-control" required="required" id="customer_name" placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!" >
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Credit Card</label>
               <div class="col-sm-10">
-                <input type="name" name="cust[card]" class="form-control" id="customer_credit_card" placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!" >
+                <input type="name" name="cust[card]" class="form-control" required="required" id="customer_credit_card" placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!" >
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Expiry date</label>
               <div class="col-sm-10">
-                <input type="month" name="cust[expiry]" class="form-control" id="credit_card_expiry" placeholder="Your credit card" >
+                <select name="cust[expiryMonth]" class="form-control-sm" required="required" id="cust[expiryMonth]">
+                  <option value="">Select Month</option>
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09">September</option>
+                  <option value="10">Octorber</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+                <select name="cust[expiryYear]" class="form-control-sm" required="required" id="cust[expiryYear]">
+                  <option value="">Select Year</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                  <option value="2028">2028</option>
+                  <option value="2029">2029</option>
+                  <option value="2030">2030</option>
+                  <option value="2031">2031</option>
+                </select>
+                <p id="error_message" style="display: none;">INVALID EXPIRY DATE!</p>
               </div>
             </div>
           </div>
-          <button type="submit" style="text-align: center;"  value="Submit">Submit</button>
+          <div style="text-align: center;">
+            <button class="btn-lg" type="submit" style="text-align: center;" value="Submit">Submit</button>
+          </div>
+          
       </form>
       
       </div>

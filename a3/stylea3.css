@@ -267,3 +267,14 @@ ul li.active a {
   padding: 20px;
   margin-top: 50px;
 }
+
+#error_message {
+  position: relative;
+  text-align: left;
+  border: 2px red solid;
+  background-color: #fee;
+  width: fit-content;
+  color: red;
+  padding: 5px;
+}
+
