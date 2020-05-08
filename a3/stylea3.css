@@ -230,7 +230,7 @@ iframe {
   border-width: 10px;
 }
 
-ul li.active a {
+ul li a.active {
   color: yellow !important;
 }
 
