@@ -299,18 +299,18 @@
     <article id="hiddensyn3" style="display: none;" id="synsyn" class="container-fluid" style="height: 100vh;">
       <div>
         <h1 id="tele4" style="text-align: center;">Synopsis</h1>
-        <h2 style="padding: 20px; color: whitesmoke;">The Happy Prince </h2>
+        <h2 style="padding: 20px; color: whitesmoke;"> Top End Wedding </h2>
         <div id="synopsis">
-          <p id="syntext" style="text-align: left; width: 50%;">His body ailing, Oscar Wilde lives out his last days in exile, observing the difficulties and failures surrounding him with ironic detachment, humour, and the wit that defined his life.
+          <p id="syntext" style="text-align: left; width: 50%;">Lauren and Ned have 10 days to find Lauren's mother who has gone AWOL in the remote far north of Australia so that they can reunite her parents and pull off their dream wedding.
             <br>
             <br>
             <br>
             <br>
             Make a booking:
-            <a  type="button" onclick="HPM6()" class="btn btn-outline-warning btn-lg">Monday - 6PM</a>
-            <a  type="button" onclick="HPT6()" class="btn btn-outline-warning btn-lg">Tuesday - 6PM</a>
-            <a  type="button" onclick="HPSA3()" class="btn btn-outline-warning btn-lg">Saturday - 3PM</a>
-            <a  type="button" onclick="HPSU3()" class="btn btn-outline-warning btn-lg">Sunday - 3PM</a>
+            <a  type="button" onclick="TEWM6()" class="btn btn-outline-warning btn-lg">Monday - 6PM</a>
+            <a  type="button" onclick="TEWT6()" class="btn btn-outline-warning btn-lg">Tuesday - 6PM</a>
+            <a  type="button" onclick="TEWDSA3()" class="btn btn-outline-warning btn-lg">Saturday - 3PM</a>
+            <a  type="button" onclick="TEWSU3()" class="btn btn-outline-warning btn-lg">Sunday - 3PM</a>
           </p>
           <div>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/tXANCJQkUIE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -322,19 +322,19 @@
     <article id="hiddensyn4" style="display: none;" id="synsyn" class="container-fluid" style="height: 100vh;">
       <div>
         <h1 id="tele4" style="text-align: center;">Synopsis</h1>
-        <h2 style="padding: 20px; color: whitesmoke;"> Top End Wedding </h2>
+        <h2 style="padding: 20px; color: whitesmoke;"> The Happy Prince </h2>
         <div id="synopsis">
-          <p id="syntext" style="text-align: left; width: 50%;">Lauren and Ned have 10 days to find Lauren's mother who has gone AWOL in the remote far north of Australia so that they can reunite her parents and pull off their dream wedding.
+          <p id="syntext" style="text-align: left; width: 50%;">His body ailing, Oscar Wilde lives out his last days in exile, observing the difficulties and failures surrounding him with ironic detachment, humour, and the wit that defined his life.
             <br>
             <br>
             <br>
             <br>
             Make a booking:
-            <a type="button" onclick="TEWW12()" class="btn btn-outline-warning btn-lg">Wednesday - 12PM</a>
-            <a type="button" onclick="TEWT12()" class="btn btn-outline-warning btn-lg">Thursday - 12PM</a>
-            <a type="button" onclick="TEWF12()" class="btn btn-outline-warning btn-lg">Friday - 12PM</a>
-            <a type="button" onclick="TEWSA9()" class="btn btn-outline-warning btn-lg">Saturday - 9PM</a>
-            <a type="button" onclick="TEWSU9()" class="btn btn-outline-warning btn-lg">Sunday - 9PM</a>
+            <a type="button" onclick="HPW12()" class="btn btn-outline-warning btn-lg">Wednesday - 12PM</a>
+            <a type="button" onclick="HPT12()" class="btn btn-outline-warning btn-lg">Thursday - 12PM</a>
+            <a type="button" onclick="HPF12()" class="btn btn-outline-warning btn-lg">Friday - 12PM</a>
+            <a type="button" onclick="HPSA9()" class="btn btn-outline-warning btn-lg">Saturday - 9PM</a>
+            <a type="button" onclick="HPSU9()" class="btn btn-outline-warning btn-lg">Sunday - 9PM</a>
           </p>
           <div>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/uoDBvGF9pPU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -364,7 +364,7 @@
           <div class="form-group row" id="form_standard">
             <label for="adult_standard" class="col-sm-2 col-form-label">Adults</label>
             <div class="col-sm-10">
-              <select name="seats[STA]" id="adult_standard" class="form-control">
+              <select name="seats[STA]" id="adult_standard" class="form-control" onchange="price_check()">
                 <option value="">Please Select</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -381,7 +381,7 @@
           
             <label for="concession_standard" class="col-sm-2 col-form-label">Concession</label>
             <div class="col-sm-10">
-              <select name="seats[STP]" id="concession_standard" class="form-control">
+              <select name="seats[STP]" id="concession_standard" class="form-control" onchange="price_check()">
                 <option value="">Please Select</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -399,7 +399,7 @@
           
             <label for="children_standard" class="col-sm-2 col-form-label">Children</label>
             <div class="col-sm-10">
-              <select name="seats[STC]" id="children_standard" class="form-control">
+              <select name="seats[STC]" id="children_standard" class="form-control" onchange="price_check()">
                 <option value="">Please Select</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -424,7 +424,7 @@
             <div class="form-group row" id="form_standard">
               <label for="adult_firstclass" class="col-sm-2 col-form-label">Adults</label>
               <div class="col-sm-10">
-                <select name="seats[FCA]" id="adult_firstclass" class="form-control">
+                <select name="seats[FCA]" id="adult_firstclass" class="form-control" onchange="price_check()">
                   <option value="">Please Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -441,7 +441,7 @@
             
               <label for="concession_firstclass" class="col-sm-2 col-form-label">Concession</label>
               <div class="col-sm-10">
-                <select name="seats[FCP]" id="concession_firstclass" class="form-control">
+                <select name="seats[FCP]" id="concession_firstclass" class="form-control" onchange="price_check()">
                   <option value="">Please Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -459,7 +459,7 @@
             
               <label for="children_firstclass" class="col-sm-2 col-form-label">Children</label>
               <div class="col-sm-10">
-                <select name="seats[FCC]" id="children_firstclass" class="form-control">
+                <select name="seats[FCC]" id="children_firstclass" class="form-control" onchange="price_check()">
                   <option value="">Please Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -528,6 +528,8 @@
                 </select>
                 <p id="error_message" style="display: none;">INVALID EXPIRY DATE!</p>
               </div>
+              <label for="final_price" id="final_price0" class="col-sm-2 col-form-label">Price</label>
+              <p id="final_price"></p>
             </div>
           </div>
           <div style="text-align: center;">

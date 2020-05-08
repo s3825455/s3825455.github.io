@@ -219,10 +219,35 @@ function Check_expiry() {
     document.getElementById("error_message").style.display = "none";
   }
 
-
   if (given_year < current_year) {
     alert("Please enter a valid expiry date!");
     return false;
   }
+}
 
+function price_check()
+{
+  var value_adult_standard = document.getElementById("adult_standard").value;
+  var value_concession_standard = document.getElementById("concession_standard").value;
+  var value_children_standard = document.getElementById("children_standard").value;
+  var value_adult_firstclass = document.getElementById("adult_firstclass").value;
+  var value_concession_firstclass = document.getElementById("concession_firstclass").value;
+  var value_children_firstclass = document.getElementById("children_firstclass").value
+  var full_price = [19.80,17.50,15.30, 30.00, 27.00, 24.00];
+  var discount_price = [14.00, 12.50, 11.00, 24.00, 22.50, 21.00];
+  var discount_time = document.getElementById("booking_movie").innerHTML;
+  var time_check_1 = discount_time.search("12PM");
+  var time_check_2 = discount_time.search("Monday");
+  var time_check_3 = discount_time.search("Wednesday");
+  var price = 0;
+
+  if (time_check_1 != (-1) || time_check_2 != (-1) || time_check_3 != (-1)) {
+    price = (discount_price[0] * value_adult_standard) + (discount_price[1] * value_concession_standard) + (discount_price[2] * value_children_standard) + (discount_price[3] * value_adult_firstclass) + (discount_price[4] * value_concession_firstclass) + (discount_price[5] * value_children_firstclass);
+    price = price.toFixed(2);
+    document.getElementById("final_price").innerHTML = "$" + price;
+  } else {
+    price = (full_price[0] * value_adult_standard) + (full_price[1] * value_concession_standard) + (full_price[2] * value_children_standard) + (full_price[3] * value_adult_firstclass) + (full_price[4] * value_concession_firstclass) + (full_price[5] * value_children_firstclass);
+    price = price.toFixed(2);
+    document.getElementById("final_price").innerHTML = "$" +price;
+  }
 }

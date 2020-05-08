@@ -278,3 +278,19 @@ ul li.active a {
   padding: 5px;
 }
 
+#final_price {
+  font-family: museo700;
+  font-size: 20px;
+  width: fit-content;
+  color: black;
+  border: solid black;
+  padding: 5px;
+}
+
+#final_price0 {
+  font-family: museo700;
+  font-size: 20px;
+  width: fit-content;
+  color: black;
+  
+}
