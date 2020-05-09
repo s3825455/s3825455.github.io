@@ -13,6 +13,16 @@ Late 15/04/2020 : Finnish whole website.
 
 
 Post Submission A3 Updates 
+02/05/2020: Begin A3, copy from A2 source for A3.
+02/05/2020: Fix previous errors that occured in A2.
+02/05/2020: Make navbar react to click.
+02/05/2020: Make "Now Showing" button that shows the movie's synopsis.
+04/05/2020: Code JS to make Synopsis Screening buttons show information of the booking.
+05/05/2020: Developing the Booking Form.
+06/05/2020: Develop Personal Information part and testing regex.
+07/06/2020: Working on validating credit card expiry date.
+09/05/2020: working on calculating price.
+8:00 pm 09/05/2020: Finished A3.
 
 
 
