@@ -1,7 +1,22 @@
 /* Insert your javascript here */
-$(document).on("click", "ul li", function () {
-  $(this).addClass("active").siblings().removeClass("active");
-});
+// $(document).on("click", "ul li", function () {
+//   $(this).addClass("active").siblings().removeClass("active");
+// });
+
+// Get the container element
+var nav_bar_element = document.getElementById("nav1");
+
+// Get all buttons with class="btn" inside the container
+var nav_link = nav_bar_element.getElementsByClassName("nav-link");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < nav_link.length; i++) {
+  nav_link[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
 
 function reveal() {
   document.getElementById("hiddensyn4").style.display = "none";
