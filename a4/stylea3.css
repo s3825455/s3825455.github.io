@@ -1,0 +1,297 @@
+#header1 {
+  text-align: center;
+  display: block;
+  font-family: museo700;
+  font-weight: bolder;
+  font-size: 700%;
+  font-style: italic;
+  color: #c3073f;
+  /* background-color: #5680e9; */
+  background-color: #1a1a1d;
+  width: 100;
+  padding: 2px 10px;
+}
+
+#brand {
+  font-family: museo700;
+  font-weight: 1000;
+  font-size: 70px;
+  font-style: italic;
+  color: #c3073f;
+}
+
+#nav-items a {
+  font-family: museo700;
+  font-weight: 900;
+  font-size: 30px;
+  font-style: italic;
+  color: #c3073f;
+}
+
+body {
+  margin: 0px 0px 0px 0px;
+  width: 100%;
+}
+
+#demo {
+  text-align: center;
+  background-image: linear-gradient(90deg, #1a1a1d, #950740, #c3073f, #1a1a1d);
+  border: thick #c3073f;
+}
+
+h1 {
+  text-align: center;
+  font-family: museo700;
+  font-weight: bolder;
+  font-size: 30px;
+  font-style: italic;
+  color: #c3073f;
+}
+
+p {
+  font-family: museo500;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  line-height: 2;
+  color: whitesmoke;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+@font-face {
+  font-family: museo500;
+  src: url(fonts/MUSEO500.OTF);
+}
+
+@font-face {
+  font-family: museo700;
+  src: url(fonts/MUSEO700-REGULAR.OTF);
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("media/cinema3.jpg");
+  /* Full height */
+  height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax2 {
+  /* The image used */
+  background-image: url("media/cinema4.jpg");
+  /* Full height */
+  height: 800px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax3 {
+  /* The image used */
+  background-image: url("media/cinema5.jpg");
+  /* Full height */
+  height: 400px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box {
+  border: thick #84ceeb;
+  background-image: linear-gradient(90deg, #1a1a1d, #4e4e50, #4e4e50, #1a1a1d);
+  padding: 10px;
+  position: relative;
+  top: 330px;
+  color: antiquewhite;
+}
+
+#seatpic {
+  text-align: center;
+  background-color: transparent;
+  position: relative;
+  top: 275px;
+}
+
+.box2 {
+  border: thick #84ceeb;
+  background-image: linear-gradient(90deg, #1a1a1d, #4e4e50, #4e4e50, #1a1a1d);
+  padding: 10px;
+  position: relative;
+  top: 250px;
+  color: antiquewhite;
+}
+
+.box3 {
+  border: thick #84ceeb;
+  background-image: linear-gradient(90deg, #1a1a1d, #4e4e50, #4e4e50, #1a1a1d);
+  padding: 10px;
+  position: relative;
+  top: 50px;
+  color: antiquewhite;
+}
+
+#price {
+  border: double white;
+  border-width: 15px;
+  background-image: linear-gradient(90deg, #c3073f, #6f2232, #6f2232, #c3073f);
+  position: relative;
+}
+
+.table {
+  font-family: museo500;
+  color: #1a1a1d;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  line-height: 2;
+  margin-top: 30px;
+  height: 70vh;
+}
+
+#posterpic {
+  float: left;
+}
+
+#cards {
+  background-color: #1a1a1d;
+  border: double turquoise;
+  border-width: 20px;
+}
+
+#pricetext {
+  position: relative;
+  top: 20px;
+}
+
+iframe {
+  float: right;
+  width: 45vw;
+  height: 50vh;
+}
+
+#synopsis {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#syntext {
+  color: whitesmoke;
+  font-size: x-large;
+}
+
+#hiddensyn {
+  background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
+  border: double white;
+  border-width: 20px;
+  padding: 20px;
+}
+
+#hiddensyn2 {
+  background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
+  border: double white;
+  border-width: 20px;
+  padding: 20px;
+}
+
+#hiddensyn3 {
+  background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
+  border: double white;
+  border-width: 20px;
+  padding: 20px;
+}
+
+#hiddensyn4 {
+  background-image: linear-gradient(to bottom, #1a1a1d, #c3073f);
+  border: double white;
+  border-width: 20px;
+  padding: 20px;
+}
+
+#button1 {
+  text-align: center;
+}
+
+#booking {
+  background-color: lightblue;
+  border:red double !important;
+  border-width: 10px;
+}
+
+ul li a.active {
+  color: yellow !important;
+}
+
+#card1 {
+  font-size: x-large !important;
+  line-height: normal !important;
+}
+
+#form_standard {
+  text-align: center;
+  font-family: Museo500;
+  font-weight: 800;
+  font-size: x-large;
+}
+
+#form01 {
+  border-top: yellow;
+  border-bottom: yellow;
+  border-style: solid;
+  border-width: 5px;
+  border-right: none;
+  border-left: none;
+  padding: 10px;
+}
+
+#form02 {
+  border-top: red;
+  border-bottom: red;
+  border-style: solid;
+  border-width: 5px;
+  border-right: none;
+  border-left: none;
+  position: relative;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+#error_message {
+  position: relative;
+  text-align: left;
+  border: 2px red solid;
+  background-color: #fee;
+  width: fit-content;
+  color: red;
+  padding: 5px;
+}
+
+#final_price {
+  font-family: museo700;
+  font-size: 20px;
+  width: fit-content;
+  color: black;
+  border: solid black;
+  padding: 5px;
+}
+
+#final_price0 {
+  font-family: museo700;
+  font-size: 20px;
+  width: fit-content;
+  color: black;
+  
+}
+
