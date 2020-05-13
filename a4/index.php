@@ -21,21 +21,22 @@
   session_start();
   include 'tools.php';
 
-  if (isset($_POST['session-reset'])) {
-    unset($_SESSION["cust[email]"]);
-    unset($_SESSION["name"]);
-    unset($_SESSION["number"]);
-    unset($_SESSION["card"]);
-    unset($_SESSION["expiryMonth"]);
-    unset($_SESSION["expiryYear"]);
-  }
+  // if (isset($_POST['session-reset'])) {
+  //   unset($_SESSION["cust[email]"]);
+  //   unset($_SESSION["name"]);
+  //   unset($_SESSION["number"]);
+  //   unset($_SESSION["card"]);
+  //   unset($_SESSION["expiryMonth"]);
+  //   unset($_SESSION["expiryYear"]);
+  // }
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["cust[name]"])) {
+    $cust = $_POST["cust"];
+    if (empty($cust["name"])) {
       $Name_error = "This can not be empty!";
     } else {
-      $name = test_input($_POST["cust[name]"]);
-      if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+      $name = test_input($cust["name"]);
+      if (!preg_match("^[a-zA-Z \-.']{1,100}$", $name)) {
         $Name_error = "Only letters and whitespace are allowed.";
       }
     }
@@ -508,7 +509,7 @@
             <div class="form-group row">
               <label for="customer_name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="text" name="cust[name]" class="form-control" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$" > 
+                <input type="text" name="cust[name]" class="form-control" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$"  > 
                 <span class="error"> * <?php echo $Name_error; ?> </span>
               </div>
               <label for="customer_email" class="col-sm-2 col-form-label">Email</label>
