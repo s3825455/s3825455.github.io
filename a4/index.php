@@ -21,16 +21,6 @@
   session_start();
   include 'tools.php';
 
-  //  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  //   if (empty($_POST["cust[name]"])) {
-  //     $nameErr = "Name is required";
-  //   } else {
-  //     $name = test_input($_POST["cust[name]"]);
-  //     if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
-  //       $nameErr = "Only letters and whitespace are allowed.";
-  //     }
-  //   }
-
   if (isset($_POST['session-reset'])) {
     unset($_SESSION["cust[email]"]);
     unset($_SESSION["name"]);
@@ -38,6 +28,12 @@
     unset($_SESSION["card"]);
     unset($_SESSION["expiryMonth"]);
     unset($_SESSION["expiryYear"]);
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["cust[name]"])) {
+      $Name_error = "This can not be empty!";
+    }
   }
 
   ?>
@@ -373,7 +369,8 @@
       <div>
         <h1 style="padding-top: 15px;">BOOKING</h1>
         <h2 id="booking_movie"></h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" onsubmit="return Check_expiry()">
+        <form method="POST" action="<?php
+                                    echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return Check_expiry()">
           <div id="form01">
             <h2 style="font-family: museo700; font-size: 50px; font-weight:800; padding-left: 30px;">Standard</h2>
             <div style="display: none;" class="form-group">
@@ -507,8 +504,8 @@
             <div class="form-group row">
               <label for="customer_name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="name" name="cust[name]" class="form-control" required="required" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$" title="Please enter a valid name!">
-                <span class="error">* <?php echo $nameErr; ?></span>
+                <input type="name" name="cust[name]" class="form-control" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$"> 
+                <span class="error">* <?php echo $Name_error; ?> </span>
               </div>
               <label for="customer_email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
@@ -516,15 +513,15 @@
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Mobile Number</label>
               <div class="col-sm-10">
-                <input type="tel" name="cust[mobile]" class="form-control" required="required" id="customer_name" placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!">
+                <input type="tel" name="cust[mobile]" class="form-control" id="customer_name" placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!">
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Credit Card</label>
               <div class="col-sm-10">
-                <input type="name" name="cust[card]" class="form-control" required="required" id="customer_credit_card" placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!">
+                <input type="name" name="cust[card]" class="form-control" id="customer_credit_card" placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!">
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Expiry date</label>
               <div class="col-sm-10">
-                <select name="cust[expiryMonth]" class="form-control-sm" required="required" id="cust[expiryMonth]">
+                <select name="cust[expiryMonth]" class="form-control-sm" id="cust[expiryMonth]">
                   <option value="">Select Month</option>
                   <option value="01">January</option>
                   <option value="02">February</option>
@@ -539,7 +536,7 @@
                   <option value="11">November</option>
                   <option value="12">December</option>
                 </select>
-                <select name="cust[expiryYear]" class="form-control-sm" required="required" id="cust[expiryYear]">
+                <select name="cust[expiryYear]" class="form-control-sm" id="cust[expiryYear]">
                   <option value="">Select Year</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
@@ -569,12 +566,12 @@
     </article>
     <article>
       <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-      <input type="submit" name="session-reset" value="Reset the session">
+        <input type="submit" name="session-reset" value="Reset the session">
       </form>
       <?php
       echo "<h2> This is your input </h2>";
-       preShow($_POST);     // ie echo a string
-       preShow($_SESSION);
+      preShow($_POST);     // ie echo a string
+      preShow($_SESSION);
       ?>
     </article>
   </main>
@@ -590,7 +587,7 @@
     <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web
       Programming course at RMIT University in Melbourne, Australia.</div>
     <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
-    
+
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
