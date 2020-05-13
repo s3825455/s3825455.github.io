@@ -33,6 +33,11 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["cust[name]"])) {
       $Name_error = "This can not be empty!";
+    } else {
+      $name = test_input($_POST["cust[name]"]);
+      if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+        $Name_error = "Only letters and whitespace are allowed.";
+      }
     }
   }
 
@@ -369,8 +374,7 @@
       <div>
         <h1 style="padding-top: 15px;">BOOKING</h1>
         <h2 id="booking_movie"></h2>
-        <form method="POST" action="<?php
-                                    echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return Check_expiry()">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return Check_expiry()">
           <div id="form01">
             <h2 style="font-family: museo700; font-size: 50px; font-weight:800; padding-left: 30px;">Standard</h2>
             <div style="display: none;" class="form-group">
@@ -504,8 +508,8 @@
             <div class="form-group row">
               <label for="customer_name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="name" name="cust[name]" class="form-control" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$"> 
-                <span class="error">* <?php echo $Name_error; ?> </span>
+                <input type="text" name="cust[name]" class="form-control" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$" > 
+                <span class="error"> * <?php echo $Name_error; ?> </span>
               </div>
               <label for="customer_email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
@@ -517,7 +521,7 @@
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Credit Card</label>
               <div class="col-sm-10">
-                <input type="name" name="cust[card]" class="form-control" id="customer_credit_card" placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!">
+                <input type="text" name="cust[card]" class="form-control" id="customer_credit_card" placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!">
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Expiry date</label>
               <div class="col-sm-10">
@@ -558,7 +562,7 @@
             </div>
           </div>
           <div style="text-align: center;">
-            <button class="btn-lg" type="submit" style="text-align: center;" value="Submit">Order</button>
+            <button class="btn-lg" name="submit" type="submit" style="text-align: center;" value="Submit">Order</button>
           </div>
         </form>
 

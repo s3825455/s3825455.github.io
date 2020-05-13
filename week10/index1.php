@@ -67,7 +67,7 @@
     <span class="error">* <?php echo $emailErr; ?></span>
     <br><br>
     <br><br>
-    <input type="submit" name="submit" value="Submit">
+    <button class="btn-lg" name="submit" type="submit" style="text-align: center;" value="Submit">Order</button>
     <input type="submit" name="session-reset" value="Reset the session">
   </form>
 
