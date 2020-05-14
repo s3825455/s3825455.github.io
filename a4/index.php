@@ -20,6 +20,19 @@
   <?php
   session_start();
   include 'tools.php';
+  $cust = $_POST["cust"];
+
+  $Name_error_count = 0;
+  $clean_name = $cust["name"];
+
+  $Email_error_count = 0;
+  $clean_email = $cust["name"];
+
+  $Phone_error_count = 0;
+  $clean_phone = $cust["mobile"];
+
+  $Credit_error_count = 0;
+  $clean_credit = $cust["card"];
 
   // if (isset($_POST['session-reset'])) {
   //   unset($_SESSION["cust[email]"]);
@@ -34,13 +47,39 @@
     $cust = $_POST["cust"];
     if (empty($cust["name"])) {
       $Name_error = "This can not be empty!";
+      $Name_error_count++;
     } else {
       $name = test_input($cust["name"]);
-      if (!preg_match("^[a-zA-Z \-.']{1,100}$", $name)) {
+      if (!preg_match("/^[a-zA-Z \-.']{1,100}$/", $name)) {
         $Name_error = "Only letters and whitespace are allowed.";
+        $Name_error_count++;
+      }
+    }
+
+    if (empty($cust["email"])) {
+      $email_error = "Email is required";
+      $Email_error_count++;
+    } else {
+      $email = test_input($cust["email"]);
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $email_error = "Invalid email format";
+        $Email_error_count++;
+      }
+    } 
+
+    if (empty($cust["mobile"])) {
+      $phone_error = "Phone number is required";
+      $Phone_error_count++;
+    } else {
+      $phone_number = test_input($cust["mobile"]);
+      if (!preg_match("/^(\(04\)|04|\+614)( ?\d){8}$/", $phone_number)) {
+        $phone_error = "Only Austrailian phone number";
+        $Phone_error_count++;
       }
     }
   }
+  
+
 
   ?>
 
@@ -515,6 +554,7 @@
               <label for="customer_email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
                 <input type="email" name="cust[email]" class="form-control" id="customer_email" placeholder="Email">
+                <span class="error"> * <?php echo $email_error; ?> </span>
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Mobile Number</label>
               <div class="col-sm-10">
