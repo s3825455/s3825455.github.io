@@ -556,9 +556,12 @@
                 <input type="email" name="cust[email]" class="form-control" id="customer_email" placeholder="Email">
                 <span class="error"> * <?php echo $email_error; ?> </span>
               </div>
+              
               <label for="customer_name" class="col-sm-2 col-form-label">Mobile Number</label>
+              
               <div class="col-sm-10">
-                <input type="tel" name="cust[mobile]" class="form-control" id="customer_name" placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!">
+                <input type="tel" name="cust[mobile]" class="form-control" id="customer_name" placeholder="Your phone number"  title="Please enter an Australian mobile number only!">
+                <span class="error"> * <?php echo $phone_error; ?> </span>
               </div>
               <label for="customer_name" class="col-sm-2 col-form-label">Credit Card</label>
               <div class="col-sm-10">
