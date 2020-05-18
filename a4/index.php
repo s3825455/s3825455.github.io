@@ -21,12 +21,18 @@
   session_start();
   include 'tools.php';
   $cust = $_POST["cust"];
+  $movie = $_POST["movie"];
+
+  $movie_error_count = 0;
+  $clean_id = $movie["id"];
+  $clean_movie_day = $movie["day"];
+  $clean_movie_hour = $movie["hour"];
 
   $Name_error_count = 0;
   $clean_name = $cust["name"];
 
   $Email_error_count = 0;
-  $clean_email = $cust["name"];
+  $clean_email = $cust["email"];
 
   $Phone_error_count = 0;
   $clean_phone = $cust["mobile"];
@@ -34,17 +40,28 @@
   $Credit_error_count = 0;
   $clean_credit = $cust["card"];
 
-  // if (isset($_POST['session-reset'])) {
-  //   unset($_SESSION["cust[email]"]);
-  //   unset($_SESSION["name"]);
-  //   unset($_SESSION["number"]);
-  //   unset($_SESSION["card"]);
-  //   unset($_SESSION["expiryMonth"]);
-  //   unset($_SESSION["expiryYear"]);
-  // }
+  $now = new \DateTime('now');
+  $month = $now->format('m');
+  $year = $now->format('Y');
+
+  $month_error_count = 0;
+  $clean_month = $cust["expiryMonth"];
+
+  $year_error_count = 0;
+  $clean_year = $cust["expiryYear"];
+
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cust = $_POST["cust"];
+    $movie = $_POST["movie"];
+
+    if (empty($movie["id"])) {
+      $movie_error = "Please select a movie and screening time!";
+      $movie_error_count++;
+    }
+
+
+
     if (empty($cust["name"])) {
       $Name_error = "This can not be empty!";
       $Name_error_count++;
@@ -65,7 +82,7 @@
         $email_error = "Invalid email format";
         $Email_error_count++;
       }
-    } 
+    }
 
     if (empty($cust["mobile"])) {
       $phone_error = "Phone number is required";
@@ -77,8 +94,56 @@
         $Phone_error_count++;
       }
     }
+
+    if (empty($cust["card"])) {
+      $credit_error = "Credit card is required!";
+      $Credit_error_count++;
+    } else {
+      $credit_card = test_input($cust["card"]);
+      if (!preg_match("/^( ?\d){14,19}$/", $credit_card)) {
+        $credit_error = "Please enter a valid credit card number!";
+        $Credit_error_count++;
+      }
+    }
+
+    if (empty($cust["expiryMonth"])) {
+      $month_error = "Expiry month is required!";
+      $month_error_count++;
+    }
+
+    if (empty($cust["expiryYear"])) {
+      $year_error = "Expiry year is required!";
+      $year_error_count++;
+    }
+
+    if ($cust["expiryMonth"] <= $month && $cust["expiryYear"] <= $year) {
+      $month_error = "Please enter a valid month!";
+      $year_error = "Please enter a valid year!";
+      $month_error_count++;
+      $year_error_count++;
+    }
+
+    if ($cust["expiryYear"] < $year) {
+      $month_error = "Your credit card has expired";
+      $year_error = "Your credit card has expired";
+      $month_error_count++;
+      $year_error_count++;
+    }
+
+    if ($Name_error_count == 0 && $Email_error_count == 0 && $Phone_error_count == 0 && $Credit_error_count == 0 && $month_error_count == 0 && $year_error_count == 0 && $movie_error_count == 0) {
+      $_SESSION['name'] = $clean_name;
+      $_SESSION['email'] = $clean_email;
+      $_SESSION['phone'] = $clean_phone;
+      $_SESSION['credit'] = $clean_credit;
+      $_SESSION['month'] = $clean_month;
+      $_SESSION['year'] = $clean_year;
+      $_SESSION['Movie_Id'] = $clean_id;
+      $_SESSION['Movie_Day'] = $clean_movie_day;
+      $_SESSION['Movie_hour'] = $clean_movie_hour;
+      header("Location: receipt.php");
+    }
   }
-  
+
 
 
   ?>
@@ -414,7 +479,7 @@
       <div>
         <h1 style="padding-top: 15px;">BOOKING</h1>
         <h2 id="booking_movie"></h2>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return Check_expiry()">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return Check_expiry()">
           <div id="form01">
             <h2 style="font-family: museo700; font-size: 50px; font-weight:800; padding-left: 30px;">Standard</h2>
             <div style="display: none;" class="form-group">
@@ -548,26 +613,27 @@
             <div class="form-group row">
               <label for="customer_name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="text" name="cust[name]" class="form-control" id="customer_name" placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$"  > 
-                <span class="error"> * <?php echo $Name_error; ?> </span>
+                <input type="text" name="cust[name]" class="form-control" id="customer_name" required placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$">
+                <span style="font-family:museo500" class="error"> * <?php echo $Name_error; ?> </span>
               </div>
               <label for="customer_email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" name="cust[email]" class="form-control" id="customer_email" placeholder="Email">
-                <span class="error"> * <?php echo $email_error; ?> </span>
+                <input type="email" name="cust[email]" class="form-control" id="customer_email" required placeholder="Email">
+                <span style="font-family:museo500" class="error"> * <?php echo $email_error; ?> </span>
               </div>
-              
-              <label for="customer_name" class="col-sm-2 col-form-label">Mobile Number</label>
-              
+
+              <label for="customer_number" class="col-sm-2 col-form-label">Mobile Number</label>
+
               <div class="col-sm-10">
-                <input type="tel" name="cust[mobile]" class="form-control" id="customer_name" placeholder="Your phone number"  title="Please enter an Australian mobile number only!">
-                <span class="error"> * <?php echo $phone_error; ?> </span>
+                <input type="tel" name="cust[mobile]" class="form-control" id="customer_name" required placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!">
+                <span style="font-family:museo500" class="error"> * <?php echo $phone_error; ?> </span>
               </div>
-              <label for="customer_name" class="col-sm-2 col-form-label">Credit Card</label>
+              <label for="customer_card" class="col-sm-2 col-form-label">Credit Card</label>
               <div class="col-sm-10">
-                <input type="text" name="cust[card]" class="form-control" id="customer_credit_card" placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!">
+                <input type="text" name="cust[card]" class="form-control" id="customer_credit_card" required placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!">
+                <span style="font-family:museo500" class="error"> * <?php echo $credit_error; ?> </span>
               </div>
-              <label for="customer_name" class="col-sm-2 col-form-label">Expiry date</label>
+              <label for="customer_expiry" class="col-sm-2 col-form-label">Expiry date</label>
               <div class="col-sm-10">
                 <select name="cust[expiryMonth]" class="form-control-sm" id="cust[expiryMonth]">
                   <option value="">Select Month</option>
@@ -584,6 +650,7 @@
                   <option value="11">November</option>
                   <option value="12">December</option>
                 </select>
+                <span style="font-family:museo500" class="error"> * <?php echo $month_error; ?> </span>
                 <select name="cust[expiryYear]" class="form-control-sm" id="cust[expiryYear]">
                   <option value="">Select Year</option>
                   <option value="2020">2020</option>
@@ -599,10 +666,14 @@
                   <option value="2030">2030</option>
                   <option value="2031">2031</option>
                 </select>
+                <span style="font-family:museo500" class="error"> * <?php echo $year_error; ?> </span>
                 <p id="error_message" style="display: none;">INVALID EXPIRY DATE!</p>
               </div>
               <label for="final_price" id="final_price0" class="col-sm-2 col-form-label">Price</label>
               <p id="final_price"></p>
+            </div>
+            <div  style="text-align: center">
+              <span style="font-size: x-large; font-family:museo500; background-color:bisque" class="error"> * <?php echo $movie_error; ?> * </span>
             </div>
           </div>
           <div style="text-align: center;">
@@ -620,6 +691,8 @@
       echo "<h2> This is your input </h2>";
       preShow($_POST);     // ie echo a string
       preShow($_SESSION);
+      echo "$month";
+      echo "$year";
       ?>
     </article>
   </main>
