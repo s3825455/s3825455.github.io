@@ -691,8 +691,6 @@
       echo "<h2> This is your input </h2>";
       preShow($_POST);     // ie echo a string
       preShow($_SESSION);
-      echo "$month";
-      echo "$year";
       ?>
     </article>
   </main>
