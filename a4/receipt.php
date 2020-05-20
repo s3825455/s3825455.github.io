@@ -15,6 +15,12 @@
 </head>
 
 <body>
+    <?php
+        include 'tools.php';
+        if(empty($_SESSION["email"])){
+            header("Location: index.php");    
+        }
+    ?>
     <header>
         <div>
             <div id="header1">

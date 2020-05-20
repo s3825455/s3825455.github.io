@@ -65,7 +65,7 @@ echo "<p>{$headings[3]}</p>";
 echo "<p>{$records[0][0]}</p>";
 
 
-$filename = "student.txt";
+$filename = "student.csv";
 $fp = fopen($filename, "w");
 flock($fp, LOCK_EX);
 fputcsv($fp, $headings);

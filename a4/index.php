@@ -1,3 +1,7 @@
+<?php
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -22,46 +26,40 @@
   include 'tools.php';
   $cust = $_POST["cust"];
   $movie = $_POST["movie"];
-
+  $seat = $_POST["seats"];
+  $STA = $seat["STA"];
+  $STP = $seat["STP"]; 
+  $STC = $seat["STC"];
+  $FCA = $seat["FCA"];
+  $FCP = $seat["FCP"];
+  $FCC = $seat["FCC"];
   $movie_error_count = 0;
   $clean_id = $movie["id"];
   $clean_movie_day = $movie["day"];
   $clean_movie_hour = $movie["hour"];
-
   $Name_error_count = 0;
   $clean_name = $cust["name"];
-
   $Email_error_count = 0;
   $clean_email = $cust["email"];
-
   $Phone_error_count = 0;
   $clean_phone = $cust["mobile"];
-
   $Credit_error_count = 0;
   $clean_credit = $cust["card"];
-
   $now = new \DateTime('now');
   $month = $now->format('m');
   $year = $now->format('Y');
-
   $month_error_count = 0;
   $clean_month = $cust["expiryMonth"];
-
   $year_error_count = 0;
   $clean_year = $cust["expiryYear"];
-
-
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cust = $_POST["cust"];
     $movie = $_POST["movie"];
-
+    $seat = $_POST['seats'];
     if (empty($movie["id"])) {
       $movie_error = "Please select a movie and screening time!";
       $movie_error_count++;
     }
-
-
-
     if (empty($cust["name"])) {
       $Name_error = "This can not be empty!";
       $Name_error_count++;
@@ -72,7 +70,6 @@
         $Name_error_count++;
       }
     }
-
     if (empty($cust["email"])) {
       $email_error = "Email is required";
       $Email_error_count++;
@@ -83,7 +80,6 @@
         $Email_error_count++;
       }
     }
-
     if (empty($cust["mobile"])) {
       $phone_error = "Phone number is required";
       $Phone_error_count++;
@@ -94,7 +90,6 @@
         $Phone_error_count++;
       }
     }
-
     if (empty($cust["card"])) {
       $credit_error = "Credit card is required!";
       $Credit_error_count++;
@@ -105,31 +100,34 @@
         $Credit_error_count++;
       }
     }
-
     if (empty($cust["expiryMonth"])) {
       $month_error = "Expiry month is required!";
       $month_error_count++;
     }
-
     if (empty($cust["expiryYear"])) {
       $year_error = "Expiry year is required!";
       $year_error_count++;
     }
-
     if ($cust["expiryMonth"] <= $month && $cust["expiryYear"] <= $year) {
       $month_error = "Please enter a valid month!";
       $year_error = "Please enter a valid year!";
       $month_error_count++;
       $year_error_count++;
     }
-
     if ($cust["expiryYear"] < $year) {
       $month_error = "Your credit card has expired";
       $year_error = "Your credit card has expired";
       $month_error_count++;
       $year_error_count++;
     }
-
+    $discount_day = "Monday";
+    $discount_day_2 = "Wednesday";
+    $discount_hour = "12PM";
+    if ($movie["day"] == $discount_day || $movie["day"] == $discount_day_2 || $movie["hour"] == $discount_hour) {
+      $price = (14.00 * $STA) + (12.50 * $STP) + (11.00 * $STC) + (24.00 * $FCA) + (22.50 * $FCP) + (21.00 * $FCC);
+    } else {
+      $price = (19.80 * $STA) + (17.50 * $STP) + (15.30 * $STC) + (30.00 * $FCA) + (27.00 * $FCP) + (24.00 * $FCC);
+    }
     if ($Name_error_count == 0 && $Email_error_count == 0 && $Phone_error_count == 0 && $Credit_error_count == 0 && $month_error_count == 0 && $year_error_count == 0 && $movie_error_count == 0) {
       $_SESSION['name'] = $clean_name;
       $_SESSION['email'] = $clean_email;
@@ -140,13 +138,43 @@
       $_SESSION['Movie_Id'] = $clean_id;
       $_SESSION['Movie_Day'] = $clean_movie_day;
       $_SESSION['Movie_hour'] = $clean_movie_hour;
+      $_SESSION['STA'] = $STA;
+      $_SESSION['STP'] = $STP;
+      $_SESSION['STC'] = $STC;
+      $_SESSION['FCA'] = $FCA;
+      $_SESSION['FCP'] = $FCP;
+      $_SESSION['FCC'] = $FCC;
+      $_SESSION['final_price'] = $price;
+      // $filename = "test.csv";
+      // $fp = fopen($filename,"a");
+      // flock($fp, LOCK_EX);
+      // $now = date('d/m');
+      // $cells = array_merge([$now], (array) $_SESSION['name'], (array) $_SESSION['email'], (array)  $_SESSION['phone'], (array) $_SESSION['Movie_Id'], (array) $_SESSION['Movie_Day'], (array)  $_SESSION['Movie_hour'], (array) $_SESSION['STA'] = $STA, (array) $_SESSION['STP'], (array) $_SESSION['STC'], (array) $_SESSION['FCA'], (array) $_SESSION['FCP'], (array) $_SESSION['FCC'], (array) $_SESSION['final_price']);
+      // fputcsv($fp, $cells);
+      // flock($fp, LOCK_UN);
+      // fclose($fp);
       header("Location: receipt.php");
+      exit();
     }
   }
-
-
-
+  if (isset($_POST['session-reset'])) {
+    unset($_SESSION["email"]);
+    unset($_SESSION["name"]);
+    unset($_SESSION["phone"]);
+    unset($_SESSION["credit"]);
+    unset($_SESSION["month"]);
+    unset($_SESSION["year"]);
+    unset($_SESSION["Movie_Id"]);
+    unset($_SESSION["Movie_Day"]);
+    unset($_SESSION["Movie_hour"]);
+    unset($_SESSION["final_price"]);
+  }
   ?>
+
+
+
+
+  
 
   <header>
     <div>
@@ -670,7 +698,7 @@
                 <p id="error_message" style="display: none;">INVALID EXPIRY DATE!</p>
               </div>
               <label for="final_price" id="final_price0" class="col-sm-2 col-form-label">Price</label>
-              <p id="final_price"></p>
+              <p name="price" id="final_price"></p>
             </div>
             <div  style="text-align: center">
               <span style="font-size: x-large; font-family:museo500; background-color:bisque" class="error"> * <?php echo $movie_error; ?> * </span>
@@ -684,8 +712,8 @@
       </div>
     </article>
     <article>
-      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <input type="submit" name="session-reset" value="Reset the session">
+      <form method="post">
+      <input type='submit' name='session-reset' value='Reset the session' >
       </form>
       <?php
       echo "<h2> This is your input </h2>";
