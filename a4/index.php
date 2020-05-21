@@ -38,7 +38,8 @@ ob_start();
   $clean_movie_day = $movie["day"];
   $clean_movie_hour = $movie["hour"];
   $Name_error_count = 0;
-  $clean_name = $cust["name"];
+  $clean_name_1 = $cust["name"];
+  $clean_name = ucwords($clean_name_1);
   $Email_error_count = 0;
   $clean_email = $cust["email"];
   $Phone_error_count = 0;
@@ -145,14 +146,14 @@ ob_start();
       $_SESSION['FCP'] = $FCP;
       $_SESSION['FCC'] = $FCC;
       $_SESSION['final_price'] = $price;
-      // $filename = "test.csv";
-      // $fp = fopen($filename,"a");
-      // flock($fp, LOCK_EX);
-      // $now = date('d/m');
-      // $cells = array_merge([$now], (array) $_SESSION['name'], (array) $_SESSION['email'], (array)  $_SESSION['phone'], (array) $_SESSION['Movie_Id'], (array) $_SESSION['Movie_Day'], (array)  $_SESSION['Movie_hour'], (array) $_SESSION['STA'] = $STA, (array) $_SESSION['STP'], (array) $_SESSION['STC'], (array) $_SESSION['FCA'], (array) $_SESSION['FCP'], (array) $_SESSION['FCC'], (array) $_SESSION['final_price']);
-      // fputcsv($fp, $cells);
-      // flock($fp, LOCK_UN);
-      // fclose($fp);
+      $filename = "test.csv";
+      $fp = fopen($filename,"w");
+      flock($fp, LOCK_EX);
+      $now = date('d/m');
+      $cells = array_merge([$now], (array) $_SESSION['name'], (array) $_SESSION['email'], (array)  $_SESSION['phone'], (array) $_SESSION['Movie_Id'], (array) $_SESSION['Movie_Day'], (array)  $_SESSION['Movie_hour'], (array) $_SESSION['STA'] = $STA, (array) $_SESSION['STP'], (array) $_SESSION['STC'], (array) $_SESSION['FCA'], (array) $_SESSION['FCP'], (array) $_SESSION['FCC'], (array) $_SESSION['final_price']);
+      fputcsv($fp, $cells);
+      flock($fp, LOCK_UN);
+      fclose($fp);
       header("Location: receipt.php");
       exit();
     }
@@ -653,7 +654,7 @@ ob_start();
               <label for="customer_number" class="col-sm-2 col-form-label">Mobile Number</label>
 
               <div class="col-sm-10">
-                <input type="tel" name="cust[mobile]" class="form-control" id="customer_name" required placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!">
+                <input type="text" name="cust[mobile]" class="form-control" id="customer_name" required placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!">
                 <span style="font-family:museo500" class="error"> * <?php echo $phone_error; ?> </span>
               </div>
               <label for="customer_card" class="col-sm-2 col-form-label">Credit Card</label>

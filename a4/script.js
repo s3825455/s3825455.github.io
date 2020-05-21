@@ -266,3 +266,4 @@ function price_check()
     document.getElementById("final_price").innerHTML = "$" +price;
   }
 }
+

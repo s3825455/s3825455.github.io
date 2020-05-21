@@ -16,9 +16,14 @@
   src: url(fonts/MUSEO500.OTF);
 }
 
+@font-face {
+  font-family: museo700;
+  src: url(fonts/MUSEO700-REGULAR.OTF);
+}
+
 
 body {
-  background-color: yellow;
+  background-color: rgb(204, 204, 204);
   font-family: museo500;
   font-size: larger;
 }
@@ -30,5 +35,33 @@ body {
   margin-bottom: 0.5cm;
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
   width: 21cm;
+  overflow: hidden;
 }
 
+#brand_name {
+  /* float: left; */
+  text-align: left;
+  font-family: museo500;
+  font-size: xx-large;
+  font-weight: 800;
+  font-style: italic;
+  padding-left: 5px;
+  padding-top: 10px;
+}
+
+#brand_info {
+  float: right;
+  text-align: right;
+  font-family: museo500;
+  font-size: large;
+  font-weight: 800;
+  padding-right: 5px;
+  padding-top: 10px;
+}
+
+#receipt_info {
+  text-align: center;
+  font-family: museo700;
+  font-size: 60px;
+  font-weight: 900;
+}
