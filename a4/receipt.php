@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receipt</title>
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-    <link id='stylecss' type="text/css" rel="stylesheet" href="receipt_style.css">
+    <link type="text/css" rel="stylesheet" href="rstyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -16,10 +16,11 @@
 
 <body>
     <?php
-        include 'tools.php';
-        if(empty($_SESSION["email"])){
-            header("Location: index.php");    
-        }
+    // session_start();
+    // include 'tools.php';
+    // if (empty($_SESSION["email"])) {
+    //     header("Location: index.php");
+    // }
     ?>
     <header>
         <div>
@@ -28,6 +29,12 @@
             </div>
         </div>
     </header>
+
+
+    <article id="receipt">
+        <p style="text-align: left">Cinemax</p>
+    </article>
+
 
 
 
