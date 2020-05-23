@@ -129,6 +129,8 @@ ob_start();
     } else {
       $price = (19.80 * $STA) + (17.50 * $STP) + (15.30 * $STC) + (30.00 * $FCA) + (27.00 * $FCP) + (24.00 * $FCC);
     }
+
+  
     if ($Name_error_count == 0 && $Email_error_count == 0 && $Phone_error_count == 0 && $Credit_error_count == 0 && $month_error_count == 0 && $year_error_count == 0 && $movie_error_count == 0) {
       $_SESSION['name'] = $clean_name;
       $_SESSION['email'] = $clean_email;
@@ -146,8 +148,9 @@ ob_start();
       $_SESSION['FCP'] = $FCP;
       $_SESSION['FCC'] = $FCC;
       $_SESSION['final_price'] = $price;
+
       $filename = "test.csv";
-      $fp = fopen($filename,"w");
+      $fp = fopen($filename,"a");
       flock($fp, LOCK_EX);
       $now = date('d/m');
       $cells = array_merge([$now], (array) $_SESSION['name'], (array) $_SESSION['email'], (array)  $_SESSION['phone'], (array) $_SESSION['Movie_Id'], (array) $_SESSION['Movie_Day'], (array)  $_SESSION['Movie_hour'], (array) $_SESSION['STA'] = $STA, (array) $_SESSION['STP'], (array) $_SESSION['STC'], (array) $_SESSION['FCA'], (array) $_SESSION['FCP'], (array) $_SESSION['FCC'], (array) $_SESSION['final_price']);

@@ -25,26 +25,27 @@
         header("Location: index.php");
     }
 
-    $filename = "test.csv";
-    $fp = fopen($filename,"r");
-    flock($fp,LOCK_SH);
-    $info = fgetcsv($fp);
-    flock($fp,LOCK_UN);
-    fclose($fp);
-    $date = $info[5];
-    $movie = $info[4];
+    // $filename = "test.csv";
+    // $fp = fopen($filename,"r");
+    // flock($fp,LOCK_SH);
+    // $info = fgetcsv($fp);
+    // flock($fp,LOCK_UN);
+    // fclose($fp);
+    // $date = $info[5];
+    // $movie = $info[4];
     $movie1 = "ACT";
     $movie2 = "ANM";
     $movie3 = "RMC";
     $movie4 = "AHF";
+    $now = date('d/m');
 
-    if ($movie == $movie1) {
+    if ($_SESSION['Movie_Id'] == $movie1) {
         $movie = "Avenger Endgame";
     } else {
-        if ($movie == $movie2) {
+        if ($_SESSION['Movie_Id'] == $movie2) {
             $movie = "Dumbo";
         } else {
-            if ($movie == $movie3) {
+            if ($_SESSION['Movie_Id'] == $movie3) {
                 $movie = "Top End Wedding";
             } else {
                 $movie = "The Happy Prince";
@@ -52,7 +53,7 @@
         }
     }
 
-    switch ($date) {
+    switch ($_SESSION['Movie_Day']) {
         case "MON":
             $screening = "Monday";
             break;
@@ -75,6 +76,7 @@
             $screening = "Sunday";
             break;
     }
+    
     ?>
     <header>
         <div>
@@ -95,38 +97,42 @@
     <br>
     <br>
     <div id="receipt_info">Tax Invoice</div>
+    <br>
     <div>
-        <p> Customer's name: <?php print_r($info[1]) ?></p>
+        <h2>Customer Information</h2>
+        <p> Customer's name: <?php print_r($_SESSION['name']) ?></p>
         <br>
-        <p> Customer's email: <?php print_r($info[2]) ?></p>
+        <p> Customer's email: <?php print_r($_SESSION['email']) ?></p>
         <br>
-        <p> Customer's mobile number: <?php print_r($info[3]) ?></p>
-        <br>
-        <p> Booking date: <?php print_r($info[0]) ?></p>
+        <p> Customer's mobile number: <?php print_r($_SESSION['phone']) ?></p>
+    </div>
+    <div>
+        <h2>Booking Details</h2>
+        <p> Booking date: <?php print_r($now) ?></p>
         <br>
         <p>Movie: <?php print_r($movie) ?></p>
         <br>
         <p>Screening session: <?php print_r($screening) ?> </p>
-        <p>
-            <?php
-            print_r($info);
-            print_r($movie) ;
-            ?>
-        </p>
     </div>
     <div>
-        <table class=" table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Description</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Unit price</th>
-                    <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th id="row1" scope="row">Standard Adult</th>
+    <?php 
+        echo "<table class=\"table table-striped\">";
+        echo   "<thead>";
+        echo       "<tr>";
+        echo            "<th scope=\"col\">Description</th>";
+        echo            "<th scope=\"col\">Quantity</th>";
+        echo            "<th scope=\"col\">Unit price</th>";
+        echo           "<th scope=\"col\">Total</th>";
+        echo        "</tr>";
+        echo    "</thead>";
+            
+            echo "<tbody>";
+            echo    "<tr>";
+                    
+                        echo   "<th class=\"row\"> Standard Adult </th>";
+                        echo "<td>" + $_SESSION['STA']; + "</td>";
+                    // <td> <?php echo $_SESSION['STA_price']; ?> </td>
+                    ?>
                      
 
                 </tr>
