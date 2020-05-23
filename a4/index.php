@@ -172,6 +172,7 @@ ob_start();
     unset($_SESSION["Movie_Day"]);
     unset($_SESSION["Movie_hour"]);
     unset($_SESSION["final_price"]);
+    unset($_SESSIOn["STA"]);
   }
   ?>
 

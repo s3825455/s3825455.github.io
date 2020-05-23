@@ -5,10 +5,12 @@
   font-weight: bolder;
   font-size: 700%;
   font-style: italic;
-  color: #F4b41a;
-  background-color: #00539CFF;
+  color: #FBE1CA;
+  background-color: #2D383C;
   width: 100;
   padding: 2px 10px;
+  border-bottom: double pink;
+  border-width: 10px;
 }
 
 @font-face {
@@ -35,7 +37,10 @@ body {
   margin-bottom: 0.5cm;
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
   width: 21cm;
+  height: 29.7cm;
   overflow: hidden;
+  
+  
 }
 
 #brand_name {
@@ -65,3 +70,11 @@ body {
   font-size: 60px;
   font-weight: 900;
 }
+
+
+#price_info {
+  float:right;
+  padding-right: 60px;
+}
+
+

@@ -1,0 +1,75 @@
+#header1 {
+    text-align: center;
+    display: block;
+    font-family: museo700;
+    font-weight: bolder;
+    font-size: 700%;
+    font-style: italic;
+    color: #FBE1CA;
+    background-color: #2D383C;
+    width: 100;
+    padding: 2px 10px;
+    border-bottom: double pink;
+    border-width: 10px;
+  }
+
+  @font-face {
+    font-family: museo500;
+    src: url(fonts/MUSEO500.OTF);
+  }
+  
+  @font-face {
+    font-family: museo700;
+    src: url(fonts/MUSEO700-REGULAR.OTF);
+  }
+
+  body {
+    background-color: rgb(204, 204, 204);
+    font-family: museo500;
+    font-size: larger;
+  }
+
+  #ticket {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    width: 21cm;
+    overflow: hidden;
+    margin-top:10px;
+  }
+
+  #header2 {
+      border-bottom: double #FBE1CA;
+      border-width: 20px;
+      background-color: #FB4647;
+      color: #FBE1CA;
+      font-family: museo500;
+      font-weight: 800;
+      padding: 10px;
+      border-right: solid #FBE1CA;
+      border-left: solid #FBE1CA;
+      border-top: solid #FBE1CA;
+
+  }
+
+  #star {
+    font-size:48px !important;
+  }
+
+  #detail1 {
+    border-bottom: double #FBE1CA;
+    border-width: 20px;
+    background-color: #FB4647;
+    color: #FBE1CA;
+    font-family: museo500;
+    font-weight: 600;
+    font-size: x-large;
+    padding: 10px;
+    border-right: solid #FBE1CA;
+    border-left: solid #FBE1CA;
+
+    
+  }
+  
