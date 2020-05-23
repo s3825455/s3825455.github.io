@@ -130,7 +130,7 @@
             echo    "<tr>";
                     
                         echo   "<th class=\"row\"> Standard Adult </th>";
-                        echo "<td>" + $_SESSION['STA']; + "</td>";
+                        echo $_SESSION['STA']; 
                     // <td> <?php echo $_SESSION['STA_price']; ?> </td>
                     ?>
                      
