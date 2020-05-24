@@ -25,8 +25,14 @@ Post Submission A3 Updates
 8:00 pm 09/05/2020: Finished A3.
 
 
-
 Post Submission A4 Updates 
+17/05/2020: Begin A4
+17/05/2020: Checking $_POST and adding it to $_SESSION and add warnings
+19/05/2020: Use PHP to calculate total price and designing receipt.PHP
+20/05/2020: design receipt.php, fill in information
+21/05/2020: Work with CSV
+22-23-24/05/2020: design ticket.php
+
 
 
 

@@ -111,13 +111,14 @@
 
 
     <article style="margin-top:100px" id="receipt">
-        <div>
+        <div style="background-color: #2065A8; color:white">
             <span id="brand_name">Cinemax</span>
             <span id="brand_info">53 Old Tenterfield Road <br> Phone number: 0381-149304 <br> ABN number: 00 123 456 789</span>
-        </div>
+        <br>
         <br>
         <br>
         <div id="receipt_info">Tax Invoice</div>
+        </div>
         <br>
         <div id="cust_info">
             <h2 style="padding-left: 10px; font-weight:600; ">Customer Information</h2>
@@ -242,14 +243,15 @@
 
 
             <div>
-                <a style="margin-left:10px" class="btn btn-primary" href="ticket.php" role="button">Print individual ticket</a>
-                <a class="btn btn-primary" href="#" role="button">Print group ticket</a>
-                <div id="price_info">
+            <a class="btn btn-primary" href="single_ticket.php" role="button">Print individual tickets</a>
+                <a style="margin-left:10px" class="btn btn-primary" href="ticket.php" role="button">Print group ticket</a>
+                
+                <div style="background-color: #2065A8; color:white; padding: 10px; margin-right: 25px" id="price_info">
                     <h3>Total price: $ <?php echo  number_format((float) $_SESSION['final_price'], 2, '.', ''); ?></h3>
                     <?php $tax = $_SESSION['final_price'] / 11;
                     $final = $_SESSION['final_price'] + $tax;  ?>
                     <h3>Tax: $ <?php echo number_format((float) $tax, 2, '.', ''); ?></h3>
-                    <h3 style="color:green">Amount due: $ <?php echo number_format((float) $final, 2, '.', ''); ?></h3>
+                    <h3>Amount due: <mark> $ <?php echo number_format((float) $final, 2, '.', ''); ?> </mark> </h3>
                 </div>
             </div>
         </div>

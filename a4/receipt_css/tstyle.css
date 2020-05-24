@@ -51,7 +51,7 @@
       border-right: solid #FBE1CA;
       border-left: solid #FBE1CA;
       border-top: solid #FBE1CA;
-
+      text-align: center;
   }
 
   #star {
@@ -59,7 +59,7 @@
   }
 
   #detail1 {
-    border-bottom: double #FBE1CA;
+    border-bottom: solid #FBE1CA;
     border-width: 20px;
     background-color: #FB4647;
     color: #FBE1CA;
@@ -72,4 +72,4 @@
 
     
   }
-  
+

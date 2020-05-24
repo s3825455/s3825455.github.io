@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Individual ticket</title>
+    <title>Group ticket</title>
 
     <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>

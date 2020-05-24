@@ -121,9 +121,9 @@ ob_start();
       $month_error_count++;
       $year_error_count++;
     }
-    $discount_day = "Monday";
-    $discount_day_2 = "Wednesday";
-    $discount_hour = "12PM";
+    $discount_day = "MON";
+    $discount_day_2 = "WED";
+    $discount_hour = "T12";
     if ($movie["day"] == $discount_day || $movie["day"] == $discount_day_2 || $movie["hour"] == $discount_hour) {
       $price = (14.00 * $STA) + (12.50 * $STP) + (11.00 * $STC) + (24.00 * $FCA) + (22.50 * $FCP) + (21.00 * $FCC);
     } else {
@@ -154,7 +154,7 @@ ob_start();
       flock($fp, LOCK_EX);
       $now = date('d/m');
       $cells = array_merge([$now], (array) $_SESSION['name'], (array) $_SESSION['email'], (array)  $_SESSION['phone'], (array) $_SESSION['Movie_Id'], (array) $_SESSION['Movie_Day'], (array)  $_SESSION['Movie_hour'], (array) $_SESSION['STA'] = $STA, (array) $_SESSION['STP'], (array) $_SESSION['STC'], (array) $_SESSION['FCA'], (array) $_SESSION['FCP'], (array) $_SESSION['FCC'], (array) $_SESSION['final_price']);
-      fputcsv($fp, $cells);
+      fputcsv($fp, $cells, "\t");
       flock($fp, LOCK_UN);
       fclose($fp);
       header("Location: receipt.php");
@@ -646,24 +646,24 @@ ob_start();
             <div class="form-group row">
               <label for="customer_name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
-                <input type="text" name="cust[name]" class="form-control" id="customer_name" required placeholder="Your full name" pattern="^[a-zA-Z \-.']{1,100}$">
+                <input type="text" name="cust[name]" <?php if (!empty($cust["name"])) {echo "value=\"" . $cust["name"] . "\"";} ?> class="form-control" id="customer_name" required placeholder="Your full name">
                 <span style="font-family:museo500" class="error"> * <?php echo $Name_error; ?> </span>
               </div>
               <label for="customer_email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" name="cust[email]" class="form-control" id="customer_email" required placeholder="Email">
+                <input type="email" name="cust[email]" <?php if (!empty($cust["email"])) {echo "value=\"" . $cust["email"] . "\"";} ?> class="form-control" id="customer_email" required placeholder="Email">
                 <span style="font-family:museo500" class="error"> * <?php echo $email_error; ?> </span>
               </div>
 
               <label for="customer_number" class="col-sm-2 col-form-label">Mobile Number</label>
 
               <div class="col-sm-10">
-                <input type="text" name="cust[mobile]" class="form-control" id="customer_name" required placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!">
+                <input type="text" name="cust[mobile]" <?php if (!empty($cust["mobile"])) {echo "value=\"" . $cust["mobile"] . "\"";} ?> class="form-control" id="customer_name" required placeholder="Your phone number" pattern="^(\(04\)|04|\+614)( ?\d){8}$" title="Please enter an Australian mobile number only!">
                 <span style="font-family:museo500" class="error"> * <?php echo $phone_error; ?> </span>
               </div>
               <label for="customer_card" class="col-sm-2 col-form-label">Credit Card</label>
               <div class="col-sm-10">
-                <input type="text" name="cust[card]" class="form-control" id="customer_credit_card" required placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!">
+                <input type="text" name="cust[card]" <?php if (!empty($cust["card"])) {echo "value=\"" . $cust["card"] . "\"";} ?> class="form-control" id="customer_credit_card" required placeholder="Your credit card" pattern="^( ?\d){14,19}$" title="Please enter a valid credit card!">
                 <span style="font-family:museo500" class="error"> * <?php echo $credit_error; ?> </span>
               </div>
               <label for="customer_expiry" class="col-sm-2 col-form-label">Expiry date</label>
