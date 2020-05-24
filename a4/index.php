@@ -154,7 +154,7 @@ ob_start();
       flock($fp, LOCK_EX);
       $now = date('d/m');
       $cells = array_merge([$now], (array) $_SESSION['name'], (array) $_SESSION['email'], (array)  $_SESSION['phone'], (array) $_SESSION['Movie_Id'], (array) $_SESSION['Movie_Day'], (array)  $_SESSION['Movie_hour'], (array) $_SESSION['STA'] = $STA, (array) $_SESSION['STP'], (array) $_SESSION['STC'], (array) $_SESSION['FCA'], (array) $_SESSION['FCP'], (array) $_SESSION['FCC'], (array) $_SESSION['final_price']);
-      fputcsv($fp, $cells, "\t");
+      fputcsv($fp, $cells);
       flock($fp, LOCK_UN);
       fclose($fp);
       header("Location: receipt.php");

@@ -16,7 +16,4 @@ DATE,NAME,EMAIL,PHONE,MOVIE ID,MOVIE DAY,MOVIE HOUR,STA,STP,STC,FCA,FCP,FCC,TOTA
 23/05,Thien An,dasdaehdba@gmail.com,412345678,ACT,FRI,T21,2,,,,3,,120.6
 24/05,Thien An,dasdaehdba@gmail.com,412345678,ACT,WED,T21,5,,,,,4,195
 24/05,Thien An,dasdaehdba@gmail.com,412345678,ACT,WED,T21,4,3,,4,2,,305.7
-24/05	"Thien An"	dasdaehdba@gmail.com	0412345678	ACT	THUR	T21	2						39.6
-24/05	"Thien An"	dasdaehdba@gmail.com	0412345678	AHF	FRI	T12	2	3					65.5
-24/05	"Thien An"	dasdaehdba@gmail.com	0412345678	ACT	THUR	T21	1	1	1	1	1	1	133.6
-24/05	"Thien An"	dasdaehdba@gmail.com	0412345678	AHF	THU	T12	3			6			186
+24/05,Thien An,dasdaehdba@gmail.com,412345678,ACT,WED,T21,6,,5,3,4,6,427
