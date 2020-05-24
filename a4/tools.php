@@ -20,4 +20,17 @@ function preShow($arr, $returnAsString = false)
         echo $ret;
 }
 
+function printMyCode() {
+
+  $lines = file($_SERVER['SCRIPT_FILENAME']);
+
+  echo "<pre class='mycode'><ol>";
+
+  foreach ($lines as $line)
+
+         echo '<li>'.rtrim(htmlentities($line)).'</li>';
+
+  echo '</ol></pre>';
+
+}
 
