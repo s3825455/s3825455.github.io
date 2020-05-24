@@ -716,16 +716,16 @@ ob_start();
 
       </div>
     </article>
-    <article>
+    <!-- <article>
       <form method="post">
       <input type='submit' name='session-reset' value='Reset the session' >
       </form>
       <?php
-      echo "<h2> This is your input </h2>";
-      preShow($_POST);     // ie echo a string
-      preShow($_SESSION);
+      // echo "<h2> This is your input </h2>";
+      // preShow($_POST);     // ie echo a string
+      // preShow($_SESSION);
       ?>
-    </article>
+    </article> -->
   </main>
 
 
