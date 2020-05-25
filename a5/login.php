@@ -11,7 +11,7 @@
 <body>
     <?php
     session_start();
-    $login = array('admin1' => 'test1', 'admin2' => 'test2', 'Minh' => '123456');
+    $login = array('admin1' => 'test1', 'admin2' => 'test2', 'An' => '123456');
     if (isset($_POST['Submit'])) {
 
         $Username = isset($_POST['Username']) ? $_POST['Username'] : '';
@@ -22,18 +22,25 @@
             exit;
         } else {
             $Msg = "<span style='color: red'> Invalid Login Details </span>";
-            echo $Msg;
         }
     }
     ?>
-            <div class="login-container">
-                <form action="" method="post" name="Login_Form">
-                   <h1>LOGIN</h1>
-                   <div class="user-input">
-                   <i class="fas fa-user"></i>
-                   <input name="Username" type="text" class="Input" placeholder="Username">
-                   </div>
-                </form>
+    <div class="login-container">
+        <form action="" method="post" name="Login_Form">
+            <h1>LOGIN</h1>
+            <div class="user-input">
+                <i class="fas fa-user"></i>
+                <input name="Username" type="text" placeholder="Username">
+            </div>
+
+            <div>
+            <div class="user-input">
+                <i class="fas fa-lock"></i>
+                <input name="Password" type="password" placeholder="Password">
+            </div>
+            <span style="font-size:x-large;"> <?php echo $Msg; ?> </span>
+            <input name="Submit" type="submit" class="btn" value="Sign in">
+        </form>
 
     </div>
 
