@@ -7,14 +7,14 @@ $password = "root";
 $port = 3307;
 $dbname = "A5DB";
 
+
 // Create connection
 $conn = mysqli_connect("$servername:$port", $username, $password, $dbname);
-
 // Check connection
-// if (!$conn) {
-//   die("Connection failed: " . mysqli_connect_error());
-// }
-// echo "Connected successfully";
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
 
 
 
@@ -65,22 +65,64 @@ $conn = mysqli_connect("$servername:$port", $username, $password, $dbname);
 //   }
 
 
-$sql = "SELECT pid, shoe_name, shoe_description, specs FROM Shoes";
-$result = mysqli_query($conn, $sql);
+// $sql = "SELECT pid, shoe_name, shoe_description, specs FROM Shoes";
+// $result = mysqli_query($conn, $sql);
 
-if (mysqli_num_rows($result) > 0) {
-  // output data of each row
-  while($row = mysqli_fetch_assoc($result)) {
-    echo "id: " . $row["pid"]. " - Name: " . $row["shoe_name"]. " - Description " . $row["shoe_description"]. " - Specs:" .$row["specs"]. "<br>"."<br>";
+// if (mysqli_num_rows($result) > 0) {
+//   // output data of each row
+//   while($row = mysqli_fetch_assoc($result)) {
+//     echo "id: " . $row["pid"]. " - Name: " . $row["shoe_name"]. " - Description " . $row["shoe_description"]. " - Specs:" .$row["specs"]. "<br>"."<br>";
 
 
+//   }
+// } else {
+//   echo "0 results";
+// }
+// session_destroy();
+
+
+// sql to create table
+// $sql = "CREATE TABLE admins (
+//     username VARCHAR(30) PRIMARY KEY,
+//     passwords TEXT NOT NULL,
+//     emails TEXT NOT NULL
+//     )";
+
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table created successfully";
+//   } else {
+//     echo "Error creating table: " . $conn->error;
+//   }
+
+$username = "";
+$email = "";
+if (isset($_POST["register"])) {
+  $username = $_POST["Username"];
+  $password = $_POST["Password"];
+  $email = $_POST["email"];
+
+  $sql_u = "SELECT * FROM admins WHERE username='$username'";
+  $sql_e = "SELECT * FROM admins WHERE emails='$email'";
+  $res_u = mysqli_query($conn, $sql_u);
+  $res_e = mysqli_query($conn, $sql_e);
+
+  if (mysqli_num_rows($res_u) > 0) {
+    $name_error = "Username is already taken!"; 	
+  }else if(mysqli_num_rows($res_e) > 0){
+    $email_error = "Email is already taken"; 	
+  }else{
+         $query = "INSERT INTO admins (username, emails, passwords) 
+              VALUES ('$username', '$email', '$password')";
+         $results = mysqli_query($conn, $query);
+        $success = "Account created successfully!";
   }
-} else {
-  echo "0 results";
 }
-session_destroy();
-preShow($_SESSION);
+
+
+
+
+// preShow($_POST);
+// echo 
 
 mysqli_close($conn);
-?>
 ?>
