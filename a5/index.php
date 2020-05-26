@@ -1,8 +1,8 @@
 <?php
-// session_start();
+require_once('config.php');
+require_once('functions.php');
+$products = getPublishedPosts();
 include 'tools.php';
-include 'get_products.php';
-preShow($_SESSION);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -58,9 +58,7 @@ error_reporting(E_ALL);
         <h1>Products</h1>
         <div class="products-container">
             <?php
-            // preShow($_SESSION['products']);
-
-            foreach ($_SESSION['products'] as $key => $value) {
+            foreach ($products as $key => $value) {
                 // preShow($value);
                 $name = $value['shoe_name'];
                 $pid = $value['pid'];
