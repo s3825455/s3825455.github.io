@@ -6,10 +6,10 @@ $port = 3307;
 // Create connection
 $conn = mysqli_connect("$servername:$port", $username, $password);
 // Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
+// if (!$conn) {
+//   die("Connection failed: " . mysqli_connect_error());
+// }
+// echo "Connected successfully";
 // // Create database
 // $sql = "CREATE DATABASE myDB";
 // if (mysqli_query($conn, $sql)) {
@@ -54,6 +54,9 @@ if (mysqli_num_rows($result) > 0) {
 } else {
   echo "0 results";
 }
+
+
+preShow($_SESSION);
 
 mysqli_close($conn);
 ?>

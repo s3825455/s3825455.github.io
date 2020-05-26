@@ -172,7 +172,15 @@ ob_start();
     unset($_SESSION["Movie_Day"]);
     unset($_SESSION["Movie_hour"]);
     unset($_SESSION["final_price"]);
+    unset($_SESSION["STA"]);
+    unset($_SESSIOn["STC"]);
+    unset($_SESSIOn["FCA"]);
+    unset($_SESSIOn["FCP"]);
+    unset($_SESSIOn["FCC"]);
     unset($_SESSIOn["STA"]);
+    unset($_SESSIOn["movie"]);
+    unset($_SESSIOn["time1"]);
+    unset($_SESSIOn["time2"]);
   }
   ?>
 
@@ -725,6 +733,7 @@ ob_start();
       preShow($_POST);     // ie echo a string
       preShow($_SESSION);
       printMyCode();
+      session_destroy();
       ?>
     </article>
   </main>
