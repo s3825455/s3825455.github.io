@@ -2,7 +2,7 @@
 // session_start();
 include 'tools.php';
 include 'get_products.php';
-preShow($products);
+preShow($_SESSION);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -38,12 +38,18 @@ error_reporting(E_ALL);
                 <li class="nav-item">
                     <a class="nav-link" href="#">Cart</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
+                <?php
+                if (isset($_SESSION['Userdata'])) {
+                    echo '<li class="nav-item">
+                                <a class="nav-link" href="logout.php">Logout</a>
+                            </li>';
+                } else {
+                    echo '<li class="nav-item">
+                                <a class="nav-link" href="login.php">Login</a>
+                            </li>';
+                }
+
+                ?>
             </ul>
         </div>
     </nav>
@@ -52,10 +58,16 @@ error_reporting(E_ALL);
         <h1>Products</h1>
         <div class="products-container">
             <?php
-            foreach ($products as $key => $value) {
-                $name = $value['name'];
-                if (isset($value['image'])) {
-                    $path = $value['image'];
+            // preShow($_SESSION['products']);
+
+            foreach ($_SESSION['products'] as $key => $value) {
+                // preShow($value);
+                $name = $value['shoe_name'];
+                $pid = $value['pid'];
+                $href = "single_post.php?post-slug=$pid";
+                // preShow($value);
+                if (isset($value['image_path'])) {
+                    $path = $value['image_path'];
                 } else {
                     $path = "";
                 }
@@ -63,7 +75,7 @@ error_reporting(E_ALL);
                     <img class='card-img-top' src=$path alt='Card image cap'>
                     <div class='card-body'>
                         <h5 class='card-title'>$name</h5>
-                        <a href='#' class='btn btn-primary'>Go somewhere</a>
+                        <a href=$href class='btn btn-primary'>Go somewhere</a>
                     </div>
                 </div>";
             }
