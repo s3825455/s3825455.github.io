@@ -6,10 +6,10 @@ $port = 3307;
 // Create connection
 $conn = mysqli_connect("$servername:$port", $username, $password);
 // Check connection
-// if (!$conn) {
-//   die("Connection failed: " . mysqli_connect_error());
-// }
-// echo "Connected successfully";
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
 // // Create database
 // $sql = "CREATE DATABASE myDB";
 // if (mysqli_query($conn, $sql)) {
@@ -42,21 +42,21 @@ $conn = mysqli_connect("$servername:$port", $username, $password);
 //     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 //   }
 
-$sql = "SELECT * FROM student";
-$result = mysqli_query($conn, $sql);
+// $sql = "SELECT * FROM student";
+// $result = mysqli_query($conn, $sql);
 
-if (mysqli_num_rows($result) > 0) {
-  // output data of each row
-  while($row = mysqli_fetch_assoc($result)) {
+// if (mysqli_num_rows($result) > 0) {
+//   // output data of each row
+//   while($row = mysqli_fetch_assoc($result)) {
 
-    echo $row["firstName"]. " | " . $row["lastName"]. " | " . $row["studentID"]. " | " . $row["enrolled"].   "<br>";
-  }
-} else {
-  echo "0 results";
-}
+//     echo $row["firstName"]. " | " . $row["lastName"]. " | " . $row["studentID"]. " | " . $row["enrolled"].   "<br>";
+//   }
+// } else {
+//   echo "0 results";
+// }
 
 
-preShow($_SESSION);
+// preShow($_SESSION);
 
 mysqli_close($conn);
 ?>

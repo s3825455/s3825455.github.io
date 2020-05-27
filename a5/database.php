@@ -7,9 +7,9 @@ $password = "root";
 $port = 3307;
 $dbname = "A5DB";
 
+
 // Create connection
 $conn = mysqli_connect("$servername:$port", $username, $password, $dbname);
-
 // Check connection
 // if (!$conn) {
 //   die("Connection failed: " . mysqli_connect_error());
@@ -65,23 +65,103 @@ $conn = mysqli_connect("$servername:$port", $username, $password, $dbname);
 //   }
 
 
-$sql = "SELECT pid, shoe_name, shoe_description, specs, image_path FROM Shoes";
-$result = mysqli_query($conn, $sql);
+// $sql = "SELECT pid, shoe_name, shoe_description, specs FROM Shoes";
+// $result = mysqli_query($conn, $sql);
+
+// if (mysqli_num_rows($result) > 0) {
+//   // output data of each row
+//   while($row = mysqli_fetch_assoc($result)) {
+//     echo "id: " . $row["pid"]. " - Name: " . $row["shoe_name"]. " - Description " . $row["shoe_description"]. " - Specs:" .$row["specs"]. "<br>"."<br>";
+
+
+//   }
+// } else {
+//   echo "0 results";
+// }
+// session_destroy();
+
+
+// sql to create table
+// $sql = "CREATE TABLE admins (
+//     username VARCHAR(30) PRIMARY KEY,
+//     passwords TEXT NOT NULL,
+//     emails TEXT NOT NULL
+//     )";
+
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table created successfully";
+//   } else {
+//     echo "Error creating table: " . $conn->error;
+//   }
+
+$username = "";
+$email = "";
+$username_error_count = 0;
+$email_error_count = 0;
+if (isset($_POST["register"])) {
+  $username = $_POST["Username"];
+  $password = $_POST["Password"];
+  $email = $_POST["email"];
+
+  $sql_u = "SELECT * FROM admins WHERE username='$username'";
+  $sql_e = "SELECT * FROM admins WHERE emails='$email'";
+  $res_u = mysqli_query($conn, $sql_u);
+  $res_e = mysqli_query($conn, $sql_e);
+
+  if (mysqli_num_rows($res_u) > 0) {
+    $name_error = "Username is already taken!"; 
+    $username_error_count++;
+  }
+
+  if(mysqli_num_rows($res_e) > 0){
+    $email_error = "Email is already taken!"; 	
+    $email_error_count++;
+  }
+ if ($username_error_count == 0 && $email_error_count== 0) {
+         $query = "INSERT INTO admins (username, emails, passwords) 
+              VALUES ('$username', '$email', '$password')";
+         $results = mysqli_query($conn, $query);
+        $success = "Account created successfully!";
+  }
+}
+
+
+
+if (isset($_POST["Submit"])) {
+  $username1 = $_POST["Username1"];
+  $password1 = $_POST["Password1"];
+  
+  // $sql2 = "SELECT username FROM admins WHERE username='$username1'";
+  $sql = "SELECT passwords FROM admins WHERE username='$username1'";
+  $result = mysqli_query($conn, $sql);
+  // $result2 = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    $products = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["pid"] . " - Name: " . $row["shoe_name"] . " - Description " . $row["shoe_description"] . " - Specs:" . $row["specs"] . " - Image:" . $row['image_path'] . "<br>" . "<br>";
-        array_push($products, $row);
-    }
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+      if ($row["passwords"] == $password1) {
+        header("Location: index.php");
+      } else {
+      $msg = "INVALID ACCOUNT";
+      }
+  }
 } else {
-    echo "0 results";
+  $msg = "INVALID ACCOUNT";
 }
-// session_destroy();
-$_SESSION['products'] = $products;
-// preShow($_SESSION['products']);
+
+}
+
+
+
+
+
+// preShow($_POST);
+
+
 
 mysqli_close($conn);
 ?>
-?>
+
+
+
+
