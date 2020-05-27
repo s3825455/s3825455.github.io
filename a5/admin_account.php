@@ -37,7 +37,7 @@
                 <i class="fas fa-lock"></i>
                 <input name="Password" type="password" placeholder="Password">
             </div>
-            <?php echo $success ?>
+            <span style="color: green; font-size: large"><?php echo $success ?> </span>
             <input name="register" type="submit" class="btn" value="CREATE ACCOUNT">
         </form>
 

@@ -11,10 +11,10 @@ $dbname = "A5DB";
 // Create connection
 $conn = mysqli_connect("$servername:$port", $username, $password, $dbname);
 // Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected successfully";
+// if (!$conn) {
+//   die("Connection failed: " . mysqli_connect_error());
+// }
+// echo "Connected successfully";
 
 
 
@@ -96,6 +96,8 @@ echo "Connected successfully";
 
 $username = "";
 $email = "";
+$username_error_count = 0;
+$email_error_count = 0;
 if (isset($_POST["register"])) {
   $username = $_POST["Username"];
   $password = $_POST["Password"];
@@ -107,10 +109,15 @@ if (isset($_POST["register"])) {
   $res_e = mysqli_query($conn, $sql_e);
 
   if (mysqli_num_rows($res_u) > 0) {
-    $name_error = "Username is already taken!"; 	
-  }else if(mysqli_num_rows($res_e) > 0){
-    $email_error = "Email is already taken"; 	
-  }else{
+    $name_error = "Username is already taken!"; 
+    $username_error_count++;
+  }
+
+  if(mysqli_num_rows($res_e) > 0){
+    $email_error = "Email is already taken!"; 	
+    $email_error_count++;
+  }
+ if ($username_error_count == 0 && $email_error_count== 0) {
          $query = "INSERT INTO admins (username, emails, passwords) 
               VALUES ('$username', '$email', '$password')";
          $results = mysqli_query($conn, $query);
@@ -120,9 +127,41 @@ if (isset($_POST["register"])) {
 
 
 
+if (isset($_POST["Submit"])) {
+  $username1 = $_POST["Username1"];
+  $password1 = $_POST["Password1"];
+  
+  // $sql2 = "SELECT username FROM admins WHERE username='$username1'";
+  $sql = "SELECT passwords FROM admins WHERE username='$username1'";
+  $result = mysqli_query($conn, $sql);
+  // $result2 = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+      if ($row["passwords"] == $password1) {
+        header("Location: index.php");
+      } else {
+      $msg = "INVALID ACCOUNT";
+      }
+  }
+} else {
+  $msg = "INVALID ACCOUNT";
+}
+
+}
+
+
+
+
 
 // preShow($_POST);
-// echo 
+
+
 
 mysqli_close($conn);
 ?>
+
+
+
+
