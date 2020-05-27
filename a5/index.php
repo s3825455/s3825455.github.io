@@ -1,7 +1,7 @@
 <?php
 require_once('config.php');
 require_once('functions.php');
-$products = getPublishedPosts();
+$products = getProducts();
 include 'tools.php';
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -62,7 +62,7 @@ error_reporting(E_ALL);
                 // preShow($value);
                 $name = $value['shoe_name'];
                 $pid = $value['pid'];
-                $href = "single_post.php?post-slug=$pid";
+                $href = "single_product.php?pid=$pid";
                 // preShow($value);
                 if (isset($value['image_path'])) {
                     $path = $value['image_path'];
