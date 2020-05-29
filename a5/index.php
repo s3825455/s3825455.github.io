@@ -1,13 +1,17 @@
 <?php
+session_start();
 require_once('config.php');
 require_once('functions.php');
 $products = getProducts();
 include 'tools.php';
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
+// preShow($_SESSION);
 ?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -17,13 +21,20 @@ error_reporting(E_ALL);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    </link>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
     <title>Hello, world!</title>
 </head>
 
 <body>
+    <header>
+        <div>
+            <div class="logo1">
+                <img src="media/logo.png" alt="shoez logo" class="img-fluid" style="vertical-align: middle; max-width: 300px; font-style:italic">$HOEZ
+            </div>
+        </div>
+    </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +50,10 @@ error_reporting(E_ALL);
                     <a class="nav-link" href="#">Cart</a>
                 </li>
                 <?php
-                if (isset($_SESSION['Userdata'])) {
+                if ($_SESSION['userdata'] == 'admin') {
+                    echo '<li class="nav-item">
+                    <a class="nav-link" href="panel.php">Admin panel</a>
+                            </li>';
                     echo '<li class="nav-item">
                                 <a class="nav-link" href="logout.php">Logout</a>
                             </li>';

@@ -1,15 +1,17 @@
 <?php
 session_start();
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL|E_STRICT);
 
 // Put your PHP functions and modules here
 
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialChars($data);
-    return $data;
-}
+// function test_input($data)
+// {
+//     $data = trim($data);
+//     $data = stripslashes($data);
+//     $data = htmlspecialChars($data);
+//     return $data;
+// }
 
 function preShow($arr, $returnAsString = false)
 {
@@ -34,10 +36,16 @@ function printMyCode()
     echo '</ol></pre>';
 }
 
-if (isset($_POST['session-reset'])) {
-    session_destroy();
+// if (isset($_POST['session-reset'])) {
+//     session_destroy();
     // foreach ($_SESSION as $something => &$whatever) {
 
     //     unset($whatever);
     // }
+// }
+
+function pre_r( $array ) {
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
 }

@@ -10,3 +10,16 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.logo1 {
+    text-align: center;
+    display: block;
+    font-family: museo700;
+    font-weight: bolder;
+    font-size: 700%;
+    font-style: italic;
+    color: #c3073f;
+    background-color: #1a1a1d;
+    width: 100;
+    padding: 2px 10px;
+  }
