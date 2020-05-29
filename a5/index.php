@@ -23,7 +23,7 @@ include 'tools.php';
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
+
     <title>Hello, world!</title>
 </head>
 
@@ -77,6 +77,9 @@ include 'tools.php';
                 $name = $value['shoe_name'];
                 $pid = $value['pid'];
                 $href = "single_product.php?pid=$pid";
+                setlocale(LC_MONETARY, "en_US");
+                // $price = money_format("The price is %i", $value['price']);
+                $price = "$ " . number_format($value['price'], 2);
                 // preShow($value);
                 if (isset($value['image_path'])) {
                     $path = $value['image_path'];
@@ -86,7 +89,10 @@ include 'tools.php';
                 echo "<div class='product-card card '>
                     <img class='card-img-top' src=$path alt='Card image cap'>
                     <div class='card-body'>
-                        <h5 class='card-title'>$name</h5>
+                        <div>
+                            <h5 class='card-title'>$name</h5>
+                            <h6 class='card-text'>$price</h6>
+                        </div>
                         <a href=$href class='stretched-link d-hidden'></a>
                     </div>
                 </div>";

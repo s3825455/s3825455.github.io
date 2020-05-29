@@ -294,13 +294,8 @@ if (isset($_POST["update2"])) {
 
 
 
-preShow($_POST);
+// preShow($_POST);
 
 
 
 mysqli_close($conn);
-?>
-
-
-
-

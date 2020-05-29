@@ -1,3 +1,5 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
 .product-image{
     width: 100%;
     height: auto;
@@ -14,4 +16,13 @@
 }
 .nav-pills .nav-link {
     color: #6c757d!important;
+}
+.back-button{
+    color: #6c757d;
+    text-decoration: none;
+}
+.back-button:hover{
+    color: white;
+    background-color: #565b60;
+    text-decoration: none;
 }

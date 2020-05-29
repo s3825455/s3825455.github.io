@@ -23,7 +23,6 @@ if (isset($_GET['pid'])) {
     <link rel="stylesheet" href="./css/single_product.css">
     </link>
     <title> <?php echo $product['shoe_name'] ?> | Sneakers</title>
-    <title>Hello, world!</title>
 </head>
 
 <body>
@@ -58,14 +57,14 @@ if (isset($_GET['pid'])) {
     </nav>
 
     <div class="container">
-        <h1><?php echo $product['shoe_name'] ?></h1>
+        <h2><a href="index.php" class="back-button"><i class="fas fa-arrow-left"></i> Back</a></h2>
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <img class="product-image" src=<?php echo $product['image_path'] ?>>
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="jumbotron">
-                    <h1>Name: <?php echo $product['shoe_name'] ?> </h1>
+                    <h1><?php echo $product['shoe_name'] ?> </h1>
                     <p>AVAILABLE COLOURS: <span class="badge badge-primary">Blue</span>
                         <span class="badge badge-secondary">Gray</span>
                         <span class="badge badge-success">Green</span>
@@ -75,6 +74,7 @@ if (isset($_GET['pid'])) {
                         <span class="badge badge-light">Light</span>
                         <span class="badge badge-dark">Dark</span>
                     </p>
+                    <p>STARTING AT: <b><?php echo "$ " . number_format($product['price'], 2); ?></b></p>
                     <form>
                         <div class="row">
                             <div class="form-group col-6">
@@ -100,7 +100,7 @@ if (isset($_GET['pid'])) {
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn-block btn btn-secondary">ADD TO CART</button>
+                        <button type="submit" disabled class="btn-block btn btn-secondary">ADD TO CART</button>
                     </form>
 
                 </div>
