@@ -66,11 +66,86 @@ if (isset($_GET['pid'])) {
             <div class="col-lg-6 col-md-12">
                 <div class="jumbotron">
                     <h1>Name: <?php echo $product['shoe_name'] ?> </h1>
-                    <h3><?php echo $product['shoe_description'] ?></h3>
+                    <p>AVAILABLE COLOURS: <span class="badge badge-primary">Blue</span>
+                        <span class="badge badge-secondary">Gray</span>
+                        <span class="badge badge-success">Green</span>
+                        <span class="badge badge-danger">Red</span>
+                        <span class="badge badge-warning">Orange</span>
+                        <span class="badge badge-info">Teal</span>
+                        <span class="badge badge-light">Light</span>
+                        <span class="badge badge-dark">Dark</span>
+                    </p>
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="exampleFormControlSelect1">Select Size:</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>6 UK</option>
+                                    <option>7 UK</option>
+                                    <option>8 UK</option>
+                                    <option>9 UK</option>
+                                    <option>10 UK</option>
+                                    <option>11 UK</option>
+                                    <option>12 UK</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="exampleFormControlSelect1">Amount:</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-block btn btn-secondary">ADD TO CART</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <!-- <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a class="nav-link " href="#description">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#specs">specs</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                <h3><?php echo $product['shoe_description'] ?></h3>
+            </div>
+            <div class="tab-pane fade" id="specs" role="tabpanel" aria-labelledby="specs-tab">
+                <p><?php echo $product['specs'] ?></p>
+            </div>
+        </div> -->
+        <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="specs-tab" data-toggle="tab" href="#specs" role="tab" aria-controls="specs" aria-selected="false">Specs</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                <div class="container">
+                    <p><?php echo $product['shoe_description'] ?></p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="specs" role="tabpanel" aria-labelledby="specs-tab">
+                <div class="container">
+
                     <p><?php echo $product['specs'] ?></p>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Optional JavaScript -->
