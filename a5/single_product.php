@@ -48,7 +48,11 @@ if (isset($_GET['pid'])) {
                     </p>
                     <p>STARTING AT: <b><?php echo "$ " . number_format($product['price'], 2); ?></b></p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?pid=" . $_GET['pid'] ?>" method="post">
-                        <input type="hidden" name="shoe_name" value=<?php echo $product['shoe_name'] ?>>
+                        <?php
+                        foreach ($product as $key => $value) {
+                            echo "<input type='hidden' name=$key value=$value>";
+                        }
+                        ?>
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="exampleFormControlSelect1">Select Size:</label>
@@ -127,13 +131,18 @@ if (isset($_GET['pid'])) {
             array_push($_SESSION['cart'], $_POST);
             header("Location: " . $_SERVER['PHP_SELF'] . "?pid=" . $_GET['pid']);
         } else {
-            array_push($_SESSION['cart'], $_POST);
+            $found = false;
+            foreach ($_SESSION['cart'] as $index => $productArray) {
+                if (array_search($_POST['pid'], $productArray)) {
+                    $found = true;
+                    $_SESSION['cart'][$index]['amount'] = $_SESSION['cart'][$index]['amount'] + $_POST['amount'];
+                }
+            }
+            if (!$found) {
+                array_push($_SESSION['cart'], $_POST);
+            }
             header("Location: " . $_SERVER['PHP_SELF'] . "?pid=" . $_GET['pid']);
         }
-
-
-        preShow($_POST);
-        preShow($_SESSION);
     }
     ?>
 
