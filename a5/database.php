@@ -291,13 +291,20 @@ if (isset($_POST["update2"])) {
   header("location: panel.php");
 
 }
+/////////////////////////////////////////////////////////////////////////////////////////
+if (isset($_FILES["shoe_image"])) {
+$ext_error = false;
+$extension = array('jpg', 'jpeg', 'gif', 'png');
 
 
 
+  move_uploaded_file($_FILES["shoe_image"]['tmp_name'], 'media/images/'.$_FILES["shoe_image"]['name']);
+  }
 
 
-// preShow($_POST);
+// preShow($_FILES);
 
 
 
 mysqli_close($conn);
+?>

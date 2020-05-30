@@ -36,7 +36,8 @@
     $result2 = mysqli_query($conn, $info_update_2);
     // pre_r($result1);
     // pre_r($result1 -> fetch_assoc());
-    ?>
+    // }
+    // ?>
 
     <header>
         <div>
@@ -171,7 +172,7 @@
             </table>
         </div>
         <div>
-            <form action="database.php" method="post">
+            <form action="database.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-group">
                     <div class="row">
@@ -210,6 +211,10 @@
                 <div class="form-group">
                     <label>Description</label>
                     <input type="text" name="description" class="form-control" value="<?php echo $edes; ?>" placeholder="Enter shoe description">
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="file" name="shoe_image" class="form-control">
                 </div>
                 <div class="form-group" style="text-align: center;" >
                     <?php if ($update == true) : ?>
