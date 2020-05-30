@@ -22,7 +22,7 @@
             margin-left: -10px;
         }
     </style>
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">$hoeZ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,7 +34,7 @@
             } else {
                 echo '<li class="nav-item">';
             } ?>
-            <a class="nav-link" href="index.php">Home </a>
+            <a class="nav-link" href="index.php">Home</a>
             </li>
             <?php if (strpos($_SERVER['REQUEST_URI'], 'cart.php') !== false) {
                 echo '<li class="nav-item active">';
