@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" type="text/css" href="css/panel.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
     
 </head>
 
@@ -44,6 +45,23 @@
             </div>
         </div>
     </header>
+    <nav id="navbar" class="navbar sticky-top navbar-expand-sm navbar-dark bg-primary">
+    <a id="shoez" href="" class="navbar-brand">$hoeZ</a>
+    <div id="nav1" class="collapse navbar-collapse">
+      <ul id="nav-items" class="navbar-nav mr-auto">
+        <li class="nav-item mx-5">
+          <a href="index.php" class="nav-link active">Homepage</a>
+        </li>
+        <li class="nav-item mx-5">
+          <a href="logout.php" class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
+
+
     <div class="container-fluid">
         <h1> Admin account</h1>
         <?php if (isset($_SESSION["message2"])) : ?>
