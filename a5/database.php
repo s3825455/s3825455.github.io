@@ -163,15 +163,57 @@ if (mysqli_num_rows($result) > 0) {
 if (isset($_POST["save"])) {
   $u_id = $_POST["pid"];
   $u_name = $_POST["name"];
+  $cate1 = $_POST["category"];
   $u_des = $_POST["description"];
   $u_specs = $_POST["specs"];
   $u_price = $_POST["price"];
-  $u_path = $_POST["image"];
+  $path101 = $_POST["image"];
+
+  if (isset($_FILES["shoe_image"])) {
+
+    $phpuploaderror = array(
+      0 => 'There is no error, uploaded successfully',
+      1 => 'The uploaded file exceeds maximum size in php.ini',
+      2 => 'The uploaded file exceeds the MAX_FILE_SIZE that was specified in HTML form',
+      3 => 'The uploaded file was only partially uploaded',
+      4 => 'No file was uploaded',
+      6 => 'Missing a temporary folder',
+      7 => 'Failed to write file to disk',
+      8 => 'A PHP extension stopped the file upload',
+    );
+    
+    
+    $ext_error = false;
+    $extension = array('jpg', 'jpeg', 'gif', 'png');
+    $file_extension = explode('.', $_FILES['shoe_image']['name']);
+    $img_name = $file_extension[0];
+    $file_extension = end($file_extension);
+    if (!in_array($file_extension, $extension)) {
+      $ext_error = true;
+    }
+    
+    if ($_FILES['shoe_image']['error']) {
+      $_SESSION["message"] = $phpuploaderror[$_FILES['shoe_image']['error']];
+      $_SESSION["msg_type"] = "danger";
+    
+    }
+    elseif ($ext_error) {
+      $_SESSION["message"] = "Invalid file extension!";
+      $_SESSION["msg_type"] = "danger";
+    }
+    else {
+      $img_dir = 'media/images/'.$_FILES["shoe_image"]['name'];
+      move_uploaded_file($_FILES["shoe_image"]['tmp_name'], $img_dir );
+      $img_path ='./media/images/'.$_FILES["shoe_image"]['name'];
+      $_SESSION["message"] = "Image uploaded successfully";
+    
+      
+    }
+   }
 
 
-
-  $query = "INSERT INTO shoes (pid, shoe_name, shoe_description, specs, price, image_path)
-  VALUES ('$u_id', '$u_name', '$u_des', '$u_specs', '$u_price', '$u_path')";
+  $query = "INSERT INTO shoes (pid, shoe_name,category, shoe_description, specs, price, image_path)
+  VALUES ('$u_id', '$u_name', '$cate1', '$u_des', '$u_specs', '$u_price', '$img_path')";
   $update = mysqli_query($conn, $query);
   $_SESSION["message"] = "Record has been created!";
   $_SESSION["msg_type"] = "success";
@@ -243,9 +285,52 @@ if (isset($_POST["update"])) {
   $ndes = $_POST["description"];
   $nspecs = $_POST["specs"];
   $nprice = $_POST["price"];
-  $npath = $_POST["image"];
 
-  $query = "UPDATE shoes SET pid = '$nid', shoe_name = '$nname', category = '$ncate', shoe_description = '$ndes', specs = '$nspecs', price = '$nprice', image_path = '$npath' WHERE id = '$id'";
+  if (isset($_FILES["shoe_image"])) {
+
+    $phpuploaderror = array(
+      0 => 'There is no error, uploaded successfully',
+      1 => 'The uploaded file exceeds maximum size in php.ini',
+      2 => 'The uploaded file exceeds the MAX_FILE_SIZE that was specified in HTML form',
+      3 => 'The uploaded file was only partially uploaded',
+      4 => 'No file was uploaded',
+      6 => 'Missing a temporary folder',
+      7 => 'Failed to write file to disk',
+      8 => 'A PHP extension stopped the file upload',
+    );
+    
+    
+    $ext_error = false;
+    $extension = array('jpg', 'jpeg', 'gif', 'png');
+    $file_extension = explode('.', $_FILES['shoe_image']['name']);
+    $img_name = $file_extension[0];
+    $file_extension = end($file_extension);
+    if (!in_array($file_extension, $extension)) {
+      $ext_error = true;
+    }
+    
+    if ($_FILES['shoe_image']['error']) {
+      $_SESSION["message"] = $phpuploaderror[$_FILES['shoe_image']['error']];
+      $_SESSION["msg_type"] = "danger";
+    
+    }
+    elseif ($ext_error) {
+      $_SESSION["message"] = "Invalid file extension!";
+      $_SESSION["msg_type"] = "danger";
+    }
+    else {
+      $img_dir = 'media/images/'.$_FILES["shoe_image"]['name'];
+      move_uploaded_file($_FILES["shoe_image"]['tmp_name'], $img_dir );
+      $img_path ='./media/images/'.$_FILES["shoe_image"]['name'];
+      $_SESSION["message"] = "Image uploaded successfully";
+    
+      
+    }
+   }
+  
+  
+
+  $query = "UPDATE shoes SET pid = '$nid', shoe_name = '$nname', category = '$ncate', shoe_description = '$ndes', specs = '$nspecs', price = '$nprice', image_path = '$img_path' WHERE id = '$id'";
   mysqli_query($conn, $query);
 
   $_SESSION["message"] = "Record has been updated!";
@@ -292,17 +377,9 @@ if (isset($_POST["update2"])) {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////
-if (isset($_FILES["shoe_image"])) {
-$ext_error = false;
-$extension = array('jpg', 'jpeg', 'gif', 'png');
 
 
-
-  move_uploaded_file($_FILES["shoe_image"]['tmp_name'], 'media/images/'.$_FILES["shoe_image"]['name']);
-  }
-
-
-// preShow($_FILES);
+// preShow($_SESSION);
 
 
 

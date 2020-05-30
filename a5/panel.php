@@ -193,17 +193,17 @@
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <!-- <div class="col-sm-4">
                             <label>Image</label>
-                            <input type="text" name="image" class="form-control" value="<?php echo $epath; ?>" placeholder="Enter image path">
-                        </div>
-                        <div class="col-sm-4">
+                            <input type="text" name="image" class="form-control" value="<?php echo $epath; ?>" placeholder="USE FOR UPDATE ONLY!">
+                        </div> -->
+                        <div class="col-sm-6">
                             <label>Specs</label>
                             <input type="text" name="specs" class="form-control" value="<?php echo $especs; ?>" placeholder="Enter shoe specs">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <label>Category</label>
-                            <input type="text" name="category" class="form-control" value="<?php echo $ecate; ?>" placeholder="Enter shoe specs">
+                            <input type="text" name="category" class="form-control" value="<?php echo $ecate; ?>" placeholder="Enter shoe category">
                         </div>
                     </div>
                 </div>
@@ -214,8 +214,9 @@
                 </div>
                 <div class="form-group">
                     <label>Image</label>
-                    <input type="file" name="shoe_image" class="form-control">
+                    <input type="file" name="shoe_image" accept=".jpeg,.jpg,.png,.gif" class="form-control">
                 </div>
+
                 <div class="form-group" style="text-align: center;" >
                     <?php if ($update == true) : ?>
                         <button type="submit" class="btn btn-info btn-lg" name="update">Update</button>
