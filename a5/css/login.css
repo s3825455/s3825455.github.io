@@ -1,5 +1,8 @@
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 
+.navbar{
+    background-color: rgb(213, 142, 1);
+}
 .login-container {
   width: 280px;
   position: absolute;

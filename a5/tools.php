@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL|E_STRICT);
 
@@ -38,13 +38,14 @@ function printMyCode()
 
 // if (isset($_POST['session-reset'])) {
 //     session_destroy();
-    // foreach ($_SESSION as $something => &$whatever) {
+// foreach ($_SESSION as $something => &$whatever) {
 
-    //     unset($whatever);
-    // }
+//     unset($whatever);
+// }
 // }
 
-function pre_r( $array ) {
+function pre_r($array)
+{
     echo "<pre>";
     print_r($array);
     echo "</pre>";

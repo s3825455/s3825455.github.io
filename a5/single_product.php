@@ -23,55 +23,128 @@ if (isset($_GET['pid'])) {
     <link rel="stylesheet" href="./css/single_product.css">
     </link>
     <title> <?php echo $product['shoe_name'] ?> | Sneakers</title>
-    <title>Hello, world!</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.php">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
-                </li>
-                <?php
-                if (isset($_SESSION['Userdata'])) {
-                    echo '<li class="nav-item">
-                                <a class="nav-link" href="logout.php">Logout</a>
-                            </li>';
-                } else {
-                    echo '<li class="nav-item">
-                                <a class="nav-link" href="login.php">Login</a>
-                            </li>';
-                }
-
-                ?>
-            </ul>
-        </div>
-    </nav>
+    <?php include 'navbar.php' ?>
 
     <div class="container">
-        <h1><?php echo $product['shoe_name'] ?></h1>
+        <h2><a href="index.php" class="back-button"><i class="fas fa-arrow-left"></i> Back</a></h2>
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <img class="product-image" src=<?php echo $product['image_path'] ?>>
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="jumbotron">
-                    <h1>Name: <?php echo $product['shoe_name'] ?> </h1>
-                    <h3><?php echo $product['shoe_description'] ?></h3>
-                    <p><?php echo $product['specs'] ?></p>
+                    <h1><?php echo $product['shoe_name'] ?> </h1>
+                    <p>AVAILABLE COLOURS: <span class="badge badge-primary">Blue</span>
+                        <span class="badge badge-secondary">Gray</span>
+                        <span class="badge badge-success">Green</span>
+                        <span class="badge badge-danger">Red</span>
+                        <span class="badge badge-warning">Orange</span>
+                        <span class="badge badge-info">Teal</span>
+                        <span class="badge badge-light">Light</span>
+                        <span class="badge badge-dark">Dark</span>
+                    </p>
+                    <p>STARTING AT: <b><?php echo "$ " . number_format($product['price'], 2); ?></b></p>
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?pid=" . $_GET['pid'] ?>" method="post">
+                        <?php
+                        foreach ($product as $key => $value) {
+                            echo "<input type='hidden' name=$key value=$value>";
+                        }
+                        ?>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="exampleFormControlSelect1">Select Size:</label>
+                                <select class="form-control" name="size" id="size">
+                                    <option>6 UK</option>
+                                    <option>7 UK</option>
+                                    <option>8 UK</option>
+                                    <option>9 UK</option>
+                                    <option>10 UK</option>
+                                    <option>11 UK</option>
+                                    <option>12 UK</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="exampleFormControlSelect1">Amount:</label>
+                                <select class="form-control" name="amount" id="amount">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-block btn btn-secondary">ADD TO CART</button>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
+    <div class="container mt-3">
+        <!-- <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a class="nav-link " href="#description">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#specs">specs</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                <h3><?php echo $product['shoe_description'] ?></h3>
+            </div>
+            <div class="tab-pane fade" id="specs" role="tabpanel" aria-labelledby="specs-tab">
+                <p><?php echo $product['specs'] ?></p>
+            </div>
+        </div> -->
+        <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="specs-tab" data-toggle="tab" href="#specs" role="tab" aria-controls="specs" aria-selected="false">Specs</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                <div class="container">
+                    <p><?php echo $product['shoe_description'] ?></p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="specs" role="tabpanel" aria-labelledby="specs-tab">
+                <div class="container">
+
+                    <p><?php echo $product['specs'] ?></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <?php
+    if (!empty($_POST)) {
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
+            array_push($_SESSION['cart'], $_POST);
+            header("Location: " . $_SERVER['PHP_SELF'] . "?pid=" . $_GET['pid']);
+        } else {
+            $found = false;
+            foreach ($_SESSION['cart'] as $index => $productArray) {
+                if (array_search($_POST['pid'], $productArray)) {
+                    $found = true;
+                    $_SESSION['cart'][$index]['amount'] = $_SESSION['cart'][$index]['amount'] + $_POST['amount'];
+                }
+            }
+            if (!$found) {
+                array_push($_SESSION['cart'], $_POST);
+            }
+            header("Location: " . $_SERVER['PHP_SELF'] . "?pid=" . $_GET['pid']);
+        }
+    }
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

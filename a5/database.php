@@ -301,8 +301,3 @@ if (isset($_POST["update2"])) {
 
 
 mysqli_close($conn);
-?>
-
-
-
-

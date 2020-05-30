@@ -1,4 +1,28 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
 .product-image{
     width: 100%;
     height: auto;
+}
+/* .nav-link:active{
+    background-color: red; */
+/* } */
+/* .nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: red;
+} */
+.nav-pills .nav-link.active {
+    background-color: #6c757d!important;
+    color: #ffffff!important;
+}
+.nav-pills .nav-link {
+    color: #6c757d!important;
+}
+.back-button{
+    color: #6c757d;
+    text-decoration: none;
+}
+.back-button:hover{
+    color: white;
+    background-color: #565b60;
+    text-decoration: none;
 }
