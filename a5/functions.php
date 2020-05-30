@@ -1,7 +1,9 @@
 <?php
 /* * * * * * * * * * * * * * *
-* Returns all published posts
+* Returns all products
 * * * * * * * * * * * * * * */
+
+
 function getProducts()
 {
     // use global $conn object in function
@@ -37,4 +39,6 @@ function getTopicNameById($id)
     return $product;
 }
 
-// more functions to come here ...
+function addToCart()
+{
+}

@@ -26,35 +26,7 @@ if (isset($_GET['pid'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.php">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
-                </li>
-                <?php
-                if (isset($_SESSION['Userdata'])) {
-                    echo '<li class="nav-item">
-                                <a class="nav-link" href="logout.php">Logout</a>
-                            </li>';
-                } else {
-                    echo '<li class="nav-item">
-                                <a class="nav-link" href="login.php">Login</a>
-                            </li>';
-                }
-
-                ?>
-            </ul>
-        </div>
-    </nav>
+    <?php include 'navbar.php' ?>
 
     <div class="container">
         <h2><a href="index.php" class="back-button"><i class="fas fa-arrow-left"></i> Back</a></h2>
@@ -75,11 +47,12 @@ if (isset($_GET['pid'])) {
                         <span class="badge badge-dark">Dark</span>
                     </p>
                     <p>STARTING AT: <b><?php echo "$ " . number_format($product['price'], 2); ?></b></p>
-                    <form>
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?pid=" . $_GET['pid'] ?>" method="post">
+                        <input type="hidden" name="shoe_name" value=<?php echo $product['shoe_name'] ?>>
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="exampleFormControlSelect1">Select Size:</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <select class="form-control" name="size" id="size">
                                     <option>6 UK</option>
                                     <option>7 UK</option>
                                     <option>8 UK</option>
@@ -91,7 +64,7 @@ if (isset($_GET['pid'])) {
                             </div>
                             <div class="form-group col-6">
                                 <label for="exampleFormControlSelect1">Amount:</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <select class="form-control" name="amount" id="amount">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -100,7 +73,7 @@ if (isset($_GET['pid'])) {
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" disabled class="btn-block btn btn-secondary">ADD TO CART</button>
+                        <button type="submit" class="btn-block btn btn-secondary">ADD TO CART</button>
                     </form>
 
                 </div>
@@ -147,6 +120,22 @@ if (isset($_GET['pid'])) {
         </div>
 
     </div>
+    <?php
+    if (!empty($_POST)) {
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
+            array_push($_SESSION['cart'], $_POST);
+            header("Location: " . $_SERVER['PHP_SELF'] . "?pid=" . $_GET['pid']);
+        } else {
+            array_push($_SESSION['cart'], $_POST);
+            header("Location: " . $_SERVER['PHP_SELF'] . "?pid=" . $_GET['pid']);
+        }
+
+
+        preShow($_POST);
+        preShow($_SESSION);
+    }
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
