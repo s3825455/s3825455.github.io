@@ -124,8 +124,9 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">name</th>
-                        <th scope="col">description</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Specs</th>
                         <th scope="col">Price</th>
                         <th scope="col">Image</th>
@@ -138,6 +139,7 @@
                     <tr>
                         <td> <?php echo $row["pid"]; ?></td>
                         <td> <?php echo $row["shoe_name"]; ?></td>
+                        <td> <?php echo $row["category"]; ?></td>
                         <td> <?php echo $row["shoe_description"]; ?></td>
                         <td> <?php echo $row["specs"]; ?></td>
                         <td> <?php echo $row["price"]; ?></td>
@@ -172,13 +174,17 @@
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label>Image</label>
                             <input type="text" name="image" class="form-control" value="<?php echo $epath; ?>" placeholder="Enter image path">
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label>Specs</label>
                             <input type="text" name="specs" class="form-control" value="<?php echo $especs; ?>" placeholder="Enter shoe specs">
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Category</label>
+                            <input type="text" name="category" class="form-control" value="<?php echo $ecate; ?>" placeholder="Enter shoe specs">
                         </div>
                     </div>
                 </div>

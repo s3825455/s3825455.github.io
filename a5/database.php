@@ -226,6 +226,7 @@ if (isset($_GET["edit"])){
     $row = $uinfo -> fetch_array();
     $eid = $row['pid'];
     $ename = $row['shoe_name'];
+    $ecate = $row['category'];
     $edes = $row["shoe_description"];
     $especs = $row["specs"];
     $eprice = $row["price"];
@@ -238,12 +239,13 @@ if (isset($_POST["update"])) {
   $id = $_POST["id"];
   $nid = $_POST["pid"];
   $nname = $_POST["name"];
+  $ncate = $_POST["category"];
   $ndes = $_POST["description"];
   $nspecs = $_POST["specs"];
   $nprice = $_POST["price"];
   $npath = $_POST["image"];
 
-  $query = "UPDATE shoes SET pid = '$nid', shoe_name = '$nname', shoe_description = '$ndes', specs = '$nspecs', price = '$nprice', image_path = '$npath' WHERE id = '$id'";
+  $query = "UPDATE shoes SET pid = '$nid', shoe_name = '$nname', category = '$ncate', shoe_description = '$ndes', specs = '$nspecs', price = '$nprice', image_path = '$npath' WHERE id = '$id'";
   mysqli_query($conn, $query);
 
   $_SESSION["message"] = "Record has been updated!";

@@ -20,8 +20,10 @@ include 'tools.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
 
     <title>Hello, world!</title>
 </head>
@@ -29,8 +31,8 @@ include 'tools.php';
 <body>
     <header>
         <div>
-            <div class="logo1">
-                <img src="media/logo.png" alt="shoez logo" class="img-fluid" style="vertical-align: middle; max-width: 300px; font-style:italic">$HOEZ
+            <div id="header2">
+                <h1 id="logo">$hoeZ</h1>
             </div>
         </div>
     </header>
