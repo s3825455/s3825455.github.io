@@ -1,15 +1,14 @@
 <?php
 session_start();
 include_once 'tools.php';
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$port = 3307;
-$dbname = "A5DB";
+$servername = "sql107.epizy.com";
+$username = "epiz_25803584";
+$password = "v3EFVaMRj5bA";
+$dbname = "epiz_25803584_a5db";
 
 
 // Create connection
-$conn = mysqli_connect("$servername:$port", $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 // if (!$conn) {
 //   die("Connection failed: " . mysqli_connect_error());

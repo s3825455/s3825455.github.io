@@ -102,7 +102,6 @@ $total = 0;
                         <?php
                         // for form validation
                         if (!empty($_POST)) {
-                            preShow($_POST['cust']['name']);
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 if (empty($_POST['cust']['name'])) {
                                     $nameErr = "Name is required!";
