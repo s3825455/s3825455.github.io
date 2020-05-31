@@ -8,7 +8,7 @@ function getProducts()
 {
     // use global $conn object in function
     global $conn;
-    $sql =  "SELECT pid, shoe_name, shoe_description, specs, image_path, price FROM Shoes";
+    $sql =  "SELECT * FROM Shoes";
     $result = mysqli_query($conn, $sql);
 
     // fetch all posts as an associative array called $posts
@@ -33,12 +33,8 @@ function getProduct($pid)
 function getTopicNameById($id)
 {
     global $conn;
-    $sql = "SELECT pid, shoe_name, shoe_description, specs, image_path FROM Shoes WHERE pid=$id";
+    $sql = "SELECT * FROM Shoes WHERE pid=$id";
     $result = mysqli_query($conn, $sql);
     $product = mysqli_fetch_assoc($result);
     return $product;
-}
-
-function addToCart()
-{
 }

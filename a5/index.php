@@ -47,6 +47,7 @@ include 'tools.php';
                 $name = $value['shoe_name'];
                 $pid = $value['pid'];
                 $href = "single_product.php?pid=$pid";
+                $category = $value['category'];
                 setlocale(LC_MONETARY, "en_US");
                 // $price = money_format("The price is %i", $value['price']);
                 $price = "$ " . number_format($value['price'], 2);
@@ -61,6 +62,7 @@ include 'tools.php';
                     <div class='card-body'>
                         <div>
                             <h5 class='card-title'>$name</h5>
+                            <p class='card-text text-muted'>$category</p>
                             <h6 class='card-text'>$price</h6>
                         </div>
                         <a href=$href class='stretched-link d-hidden'></a>

@@ -37,6 +37,7 @@ if (isset($_GET['pid'])) {
             <div class="col-lg-6 col-md-12">
                 <div class="jumbotron">
                     <h1><?php echo $product['shoe_name'] ?> </h1>
+                    <p class='text-muted'><?php echo $product['category'] ?></p>
                     <p>AVAILABLE COLOURS: <span class="badge badge-primary">Blue</span>
                         <span class="badge badge-secondary">Gray</span>
                         <span class="badge badge-success">Green</span>
