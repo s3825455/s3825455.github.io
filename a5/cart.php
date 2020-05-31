@@ -186,8 +186,20 @@ $total = 0;
             </div>
         </div>
     </div>
+    <footer id="footer">
+        <div style="text-align: center;">
+            <i class="fas fa-globe-americas"></i>
+            <span>88 Lazy Lane Boulevard, Texas</span>
+            <br>
+            <i class="fas fa-phone"></i>
+            <span>1900 8888</span>
+            <br>
+            <i class="fas fa-envelope"></i>
+            <span>$hoeZ@gmail.com</span>
+        </div>
+    </footer>
     <?php
-    if (isset($_POST)) {
+    if (isset($_POST) && !empty($_POST)) {
         $file = fopen('orders.csv', 'a');
         foreach ($_POST['products'] as $fields) {
             fputcsv($file, $fields);
