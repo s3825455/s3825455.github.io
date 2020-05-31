@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" type="text/css" href="css/panel.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
     
 </head>
 
@@ -35,7 +36,8 @@
     $result2 = mysqli_query($conn, $info_update_2);
     // pre_r($result1);
     // pre_r($result1 -> fetch_assoc());
-    ?>
+    // }
+    // ?>
 
     <header>
         <div>
@@ -44,6 +46,23 @@
             </div>
         </div>
     </header>
+    <nav id="navbar" class="navbar sticky-top navbar-expand-sm navbar-dark bg-primary">
+    <a id="shoez" href="" class="navbar-brand">$hoeZ</a>
+    <div id="nav1" class="collapse navbar-collapse">
+      <ul id="nav-items" class="navbar-nav mr-auto">
+        <li class="nav-item mx-5">
+          <a href="index.php" class="nav-link active">Homepage</a>
+        </li>
+        <li class="nav-item mx-5">
+          <a href="logout.php" class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
+
+
     <div class="container-fluid">
         <h1> Admin account</h1>
         <?php if (isset($_SESSION["message2"])) : ?>
@@ -153,7 +172,7 @@
             </table>
         </div>
         <div>
-            <form action="database.php" method="post">
+            <form action="database.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-group">
                     <div class="row">
@@ -174,17 +193,17 @@
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <!-- <div class="col-sm-4">
                             <label>Image</label>
-                            <input type="text" name="image" class="form-control" value="<?php echo $epath; ?>" placeholder="Enter image path">
-                        </div>
-                        <div class="col-sm-4">
+                            <input type="text" name="image" class="form-control" value="<?php echo $epath; ?>" placeholder="USE FOR UPDATE ONLY!">
+                        </div> -->
+                        <div class="col-sm-6">
                             <label>Specs</label>
                             <input type="text" name="specs" class="form-control" value="<?php echo $especs; ?>" placeholder="Enter shoe specs">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <label>Category</label>
-                            <input type="text" name="category" class="form-control" value="<?php echo $ecate; ?>" placeholder="Enter shoe specs">
+                            <input type="text" name="category" class="form-control" value="<?php echo $ecate; ?>" placeholder="Enter shoe category">
                         </div>
                     </div>
                 </div>
@@ -193,6 +212,11 @@
                     <label>Description</label>
                     <input type="text" name="description" class="form-control" value="<?php echo $edes; ?>" placeholder="Enter shoe description">
                 </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="file" name="shoe_image" accept=".jpeg,.jpg,.png,.gif" class="form-control">
+                </div>
+
                 <div class="form-group" style="text-align: center;" >
                     <?php if ($update == true) : ?>
                         <button type="submit" class="btn btn-info btn-lg" name="update">Update</button>
@@ -203,6 +227,7 @@
             </form>
         </div>
     </div>
+
 
 
 

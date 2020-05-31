@@ -13,6 +13,10 @@
     padding: 2px 10px;
     font-style: italic;
   }
+  #logo {
+    font-size: 120px;
+}
+
 
 .products-container{
     padding-top: 1em;
@@ -47,4 +51,15 @@
   @font-face {
     font-family: museo700;
     src: url(../fonts/MUSEO700-REGULAR.OTF);
+  }
+
+  #footer {
+    background-color: #1a1a1d;
+    position: fixed;
+    bottom: 0;
+    clear: both;
+    color: orange;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
   }
