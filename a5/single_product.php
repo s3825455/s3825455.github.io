@@ -142,7 +142,7 @@ if (isset($_GET['pid'])) {
             if (!$found) {
                 array_push($_SESSION['cart'], $_POST);
             }
-            header("Location: " . $_SERVER['PHP_SELF'] . "?pid=" . $_GET['pid']);
+            echo "<script>window.location.href='index.php';</script>";
         }
     }
     ?>

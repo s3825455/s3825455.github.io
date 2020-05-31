@@ -161,7 +161,7 @@ $total = 0;
         fclose($file);
         unset($_SESSION['cart']);
         unset($_SESSION['order']);
-        header("location: index.php");
+        echo "<script>window.location.href='index.php';</script>";
     }
     ?>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
