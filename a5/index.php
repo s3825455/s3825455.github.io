@@ -1,13 +1,22 @@
 <?php
 require_once('config.php');
 require_once('functions.php');
-$products = getProducts();
 include 'tools.php';
+if (isset($_GET['category'])) {
+    $products = getProductsCate($_GET['category']);
+} else {
+    $products = getProducts();
+}
+
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
 // preShow($_SESSION);
+?>
+<?php
+
+
 ?>
 
 
@@ -40,6 +49,21 @@ include 'tools.php';
 
     <div class='container'>
         <h1>Products</h1>
+        <div class="d-flex flex-row-reverse">
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories filter
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="index.php">All</a>
+                    <a class="dropdown-item" href="index.php?category=casual">Casual</a>
+                    <a class="dropdown-item" href="index.php?category=running">Running</a>
+                    <a class="dropdown-item" href="index.php?category=street">street</a>
+                    <a class="dropdown-item" href="index.php?category=premium">premium</a>
+                </div>
+            </div>
+        </div>
         <div class="products-container">
             <?php
             foreach ($products as $key => $value) {

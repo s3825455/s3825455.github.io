@@ -17,6 +17,19 @@ function getProducts()
     return $products;
 }
 
+function getProductsCate($cate)
+{
+    global $conn;
+    // Get single post slug
+    $cate = $_GET['category'];
+    $sql = "SELECT * FROM Shoes WHERE category='$cate'";
+    $result = mysqli_query($conn, $sql);
+
+    // fetch query results as associative array.
+    $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $product;
+}
+
 function getProduct($pid)
 {
     global $conn;
