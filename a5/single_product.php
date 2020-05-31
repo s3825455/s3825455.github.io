@@ -2,9 +2,9 @@
 <?php include('functions.php'); ?>
 <?php include 'tools.php' ?>
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 if (isset($_GET['pid'])) {
     $product = getProduct($_GET['pid']);
 }
@@ -37,6 +37,7 @@ if (isset($_GET['pid'])) {
             <div class="col-lg-6 col-md-12">
                 <div class="jumbotron">
                     <h1><?php echo $product['shoe_name'] ?> </h1>
+                    <p class='text-muted'><?php echo $product['category'] ?></p>
                     <p>AVAILABLE COLOURS: <span class="badge badge-primary">Blue</span>
                         <span class="badge badge-secondary">Gray</span>
                         <span class="badge badge-success">Green</span>

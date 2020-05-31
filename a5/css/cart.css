@@ -54,3 +54,12 @@ h2{
     color: #ffffff;
     border-radius: 3px;
 }
+#footer {
+    background-color: #1a1a1d;
+    bottom: 0;
+    clear: both;
+    color: orange;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+  }
