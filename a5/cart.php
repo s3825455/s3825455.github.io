@@ -51,29 +51,6 @@ $total = 0;
                 </div>
             </div>
 
-            <div class='modal' tabindex='1' role='dialog'>
-                <div class='modal-dialog' role='document'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h5 class='modal-title'>Modal title</h5>
-                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                <span aria-hidden='true'>&times;</span>
-                            </button>
-                        </div>
-                        <div class='modal-body'>
-                            <p>Modal body text goes here.</p>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-primary'>Save changes</button>
-                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
             <div class="col-lg-4 col-md-12">
                 <div class="summary-container jumbotron p-2">
                     <h2>ORDER SUMMARY</h2>
@@ -120,33 +97,7 @@ $total = 0;
                                 if (isset($nameErr) || isset($addressErr)) {
                                     // returns to index.php if error detected
                                 } else {
-                                    echo "<div class='modal' tabindex='-1' role='dialog'>
-                                        <div class='modal-dialog' role='document'>
-                                            <div class='modal-content'>
-                                            <div class='modal-header'>
-                                                <h5 class='modal-title'>Modal title</h5>
-                                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                                <span aria-hidden='true'>&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class='modal-body'>
-                                                <p>Modal body text goes here.</p>
-                                            </div>
-                                            <div class='modal-footer'>
-                                                <button type='button' class='btn btn-primary'>Save changes</button>
-                                                <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        </div>";
-
-                                    // $_SESSION["booking"] = $_POST;
-                                    // session_destroy();
-                                    // session_regenerate_id(true);
-                                    // header("location: login.php");
-                                    // echo "<script>\n
-                                    //     window.location.href = 'receipt.php';\n
-                                    // </script>";
+                                    $_SESSION["order"] = $_POST;
                                 }
                             }
                         }
@@ -178,7 +129,9 @@ $total = 0;
                                 <input type="checkbox" name="cust[verify]" required class="form-check-input" id="cust-verify">
                                 <label class="form-check-label" for="cust-verify">Confirm purchase</label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button <?php if (count($_SESSION['cart']) == 0) {
+                                        echo "disabled";
+                                    } ?> type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -198,14 +151,15 @@ $total = 0;
         </div>
     </footer>
     <?php
-    if (isset($_POST) && !empty($_POST)) {
+    if (isset($_SESSION['order']) && !empty($_POST)) {
         $file = fopen('orders.csv', 'a');
-        foreach ($_POST['products'] as $fields) {
+        foreach ($_SESSION['order']['products'] as $fields) {
             fputcsv($file, $fields);
         }
-        fputcsv($file, $_POST['cust']);
+        fputcsv($file, $_SESSION['order']['cust']);
         fclose($file);
         unset($_SESSION['cart']);
+        unset($_SESSION['order']);
         header("location: index.php");
     }
     ?>
