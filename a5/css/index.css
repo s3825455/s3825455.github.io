@@ -1,4 +1,5 @@
-@import "https://use.fontawesome.com/releases/v4.5.0/css/all.css";
+
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 #header2 {
     text-align: center;
     display: block;
@@ -44,4 +45,15 @@
   @font-face {
     font-family: museo700;
     src: url(../fonts/MUSEO700-REGULAR.OTF);
+  }
+
+  #footer {
+    background-color: #1a1a1d;
+    position: fixed;
+    bottom: 0;
+    clear: both;
+    color: orange;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
   }

@@ -22,8 +22,8 @@ include 'tools.php';
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
-    
+
+
 
     <title>Hello, world!</title>
 </head>
@@ -72,6 +72,18 @@ include 'tools.php';
         </div>
     </div>
 
+    <footer id="footer">
+        <div style="text-align: center;">
+            <i class="fas fa-globe-americas"></i>
+            <span>88 Lazy Lane Boulevard, Texas</span>
+            <br>
+            <i class="fas fa-phone"></i>
+            <span>1900 8888</span>
+            <br>
+            <i class="fas fa-envelope"></i>
+            <span>$hoeZ@gmail.com</span>
+        </div>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
