@@ -8,7 +8,7 @@ function getProducts()
 {
     // use global $conn object in function
     global $conn;
-    $sql =  "SELECT * FROM Shoes";
+    $sql =  "SELECT * FROM shoes";
     $result = mysqli_query($conn, $sql);
 
     // fetch all posts as an associative array called $posts
