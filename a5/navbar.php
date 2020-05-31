@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <style type="text/css" scoped>
         .badge {
             padding-left: 9px;
@@ -21,14 +21,27 @@
             vertical-align: top;
             margin-left: -10px;
         }
+
+        #shoez {
+  font-family: museo700;
+  font-weight: 1000;
+  font-size: 45px;
+  font-style: italic;
+}
+
+#nav-items a {
+  font-family: museo700;
+  font-weight: 900;
+  font-size: 25px;
+}
     </style>
-    <a class="navbar-brand" href="#">$hoeZ</a>
+    <a id="shoez" class="navbar-brand" href="#">$hoeZ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul id="nav-items" class="navbar-nav mr-auto">
             <?php if (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false) {
                 echo '<li class="nav-item active">';
             } else {

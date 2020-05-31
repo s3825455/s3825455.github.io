@@ -19,7 +19,7 @@
     ?>
     <?php include 'navbar.php' ?>
     <div class="login-container">
-        <form action="" method="post" name="Login_Form">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" name="Login_Form">
             <h1>LOGIN</h1>
             <div class="user-input">
                 <i class="fas fa-user"></i>

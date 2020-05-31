@@ -48,7 +48,7 @@ if (isset($_GET['category'])) {
     <?php include 'navbar.php' ?>
 
     <div class='container'>
-        <h1>Products</h1>
+        <h1 style="text-align: center; font-size: 50px">Products</h1>
         <div class="d-flex flex-row-reverse">
             <div class="dropdown show">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

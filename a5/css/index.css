@@ -26,6 +26,7 @@
     justify-content: space-evenly;
     row-gap: 1em;
     /* row-gap: 1em; */
+    font-family: museo500;
     
 }
 
@@ -64,4 +65,9 @@
     padding: 20px;
     width: 100%;
     text-align: center;
+    font-family: museo500;
   }
+
+  /* body {
+    font-family: museo500;
+  } */

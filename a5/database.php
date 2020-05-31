@@ -104,8 +104,8 @@ $email = "";
 $username_error_count = 0;
 $email_error_count = 0;
 if (isset($_POST["register"])) {
-  $username = $_POST["Username"];
-  $password = $_POST["Password"];
+  $username =  htmlspecialchars($_POST["Username"]);
+  $password =  htmlspecialchars($_POST["Password"]);
   $email = $_POST["email"];
 
   $sql_u = "SELECT * FROM admins WHERE username='$username'";
@@ -133,8 +133,8 @@ if (isset($_POST["register"])) {
 // lOG IN 
 
 if (isset($_POST["Submit"])) {
-  $username1 = $_POST["Username1"];
-  $password1 = $_POST["Password1"];
+  $username1 =  htmlspecialchars($_POST["Username1"]);
+  $password1 =  htmlspecialchars($_POST["Password1"]);
   
   // $sql2 = "SELECT username FROM admins WHERE username='$username1'";
   $sql = "SELECT passwords FROM admins WHERE username='$username1'";
@@ -161,13 +161,13 @@ if (mysqli_num_rows($result) > 0) {
 // Create items
 
 if (isset($_POST["save"])) {
-  $u_id = $_POST["pid"];
-  $u_name = $_POST["name"];
-  $cate1 = $_POST["category"];
-  $u_des = $_POST["description"];
-  $u_specs = $_POST["specs"];
-  $u_price = $_POST["price"];
-  $path101 = $_POST["image"];
+  $u_id = htmlspecialchars($_POST["pid"]);
+  $u_name = htmlspecialchars($_POST["name"]);
+  $cate1 =  htmlspecialchars($_POST["category"]);
+  $u_des =  htmlspecialchars($_POST["description"]);
+  $u_specs = htmlspecialchars($_POST["specs"]);
+  $u_price = htmlspecialchars($_POST["price"]);
+  $path101 =  htmlspecialchars($_POST["image"]);
 
   if (isset($_FILES["shoe_image"])) {
 
@@ -278,13 +278,13 @@ if (isset($_GET["edit"])){
 }
 
 if (isset($_POST["update"])) {
-  $id = $_POST["id"];
-  $nid = $_POST["pid"];
-  $nname = $_POST["name"];
-  $ncate = $_POST["category"];
-  $ndes = $_POST["description"];
-  $nspecs = $_POST["specs"];
-  $nprice = $_POST["price"];
+  $id =  htmlspecialchars($_POST["id"]);
+  $nid =  htmlspecialchars($_POST["pid"]);
+  $nname =  htmlspecialchars($_POST["name"]);
+  $ncate =  htmlspecialchars($_POST["category"]);
+  $ndes =  htmlspecialchars($_POST["description"]);
+  $nspecs =  htmlspecialchars($_POST["specs"]);
+  $nprice =  htmlspecialchars($_POST["price"]);
 
   if (isset($_FILES["shoe_image"])) {
 
