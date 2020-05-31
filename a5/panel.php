@@ -24,11 +24,12 @@
     // error_reporting(E_ALL|E_STRICT);
     include 'tools.php';
     include 'database.php';
-    $servername = "sql107.epizy.com";
-    $username = "epiz_25803584";
-    $password = "v3EFVaMRj5bA";
-    $dbname = "epiz_25803584_a5db";
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+    $port = 3307;
+    $dbname = "A5DB";
+    $conn = mysqli_connect("$servername:$port", $username, $password, $dbname);
     $info_update = "SELECT * FROM shoes";
     $result1 = mysqli_query($conn, $info_update);
     $info_update_2 = "SELECT * FROM admins";
