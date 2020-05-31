@@ -25,7 +25,7 @@ include 'tools.php';
 
 
 
-    <title>Hello, world!</title>
+    <title >SHOEZ</title>
 </head>
 
 <body>
